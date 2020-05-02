@@ -6,6 +6,7 @@ target 'CheckExchangeRate' do
   use_frameworks!
 
   # Pods for CheckExchangeRate
+  pod 'RealmSwift'
 
   target 'CheckExchangeRateTests' do
     inherit! :search_paths
