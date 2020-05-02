@@ -1,0 +1,35 @@
+### Headers settings
+company: 
+
+### Xcode project settings
+project_name: CheckExchangeRate
+xcodeproj_path: CheckExchangeRate.xcodeproj
+
+### Code generation settings section
+# The main project target name
+project_target: CheckExchangeRate
+
+# The file path for new modules
+project_file_path: /CheckExchangeRate/modules
+
+# The Xcode group path to new modules
+project_group_path: /CheckExchangeRate/modules
+
+### Tests generation settings section
+# The tests target name
+test_target: CheckExchangeRateTests
+
+# The file path for new tests
+test_file_path: /CheckExchangeRate/tests
+
+# The Xcode group path to new tests
+test_group_path: /CheckExchangeRate/tests
+
+### Dependencies settings section
+podfile_path: Podfile
+
+### Templates
+templates:
+- {name: rviper_controller}
+- {name: mvvm_controller}
+- {name: swifty_viper}
