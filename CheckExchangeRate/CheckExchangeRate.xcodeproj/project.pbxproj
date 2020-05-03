@@ -18,7 +18,6 @@
 		6845F039245B110D004F35FE /* CheckExchangeRateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6845F038245B110D004F35FE /* CheckExchangeRateUITests.swift */; };
 		686D4599245D2DEB0017B05F /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D4586245D2DEB0017B05F /* RootWireframe.swift */; };
 		686D459A245D2DEB0017B05F /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D4587245D2DEB0017B05F /* RootRouter.swift */; };
-		686D459F245D2DEB0017B05F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D4592245D2DEB0017B05F /* User.swift */; };
 		686D45A3245D30A80017B05F /* TopContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D45A2245D30A80017B05F /* TopContract.swift */; };
 		686D45A5245D41710017B05F /* TopPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D45A4245D41710017B05F /* TopPresenter.swift */; };
 		686D45A7245D42290017B05F /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D45A6245D42290017B05F /* TopViewController.swift */; };
@@ -26,6 +25,9 @@
 		686D45AB245D42990017B05F /* TopRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D45AA245D42990017B05F /* TopRouter.swift */; };
 		686D45AF245D45B70017B05F /* Top.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 686D45AE245D45B70017B05F /* Top.storyboard */; };
 		686D45B2245D47260017B05F /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D45B1245D47260017B05F /* R.generated.swift */; };
+		686D45F0245E4FC20017B05F /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D45EF245E4FC20017B05F /* Currency.swift */; };
+		686D45F2245E52520017B05F /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D45F1245E52520017B05F /* ExchangeRate.swift */; };
+		686D45F4245E80460017B05F /* UIView+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D45F3245E80460017B05F /* UIView+Border.swift */; };
 		AA20A050E29AF97A4402FA91 /* Pods_CheckExchangeRateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D93949EF4C1DE17F7C433DB0 /* Pods_CheckExchangeRateTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +69,6 @@
 		6845F03A245B110D004F35FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		686D4586245D2DEB0017B05F /* RootWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootWireframe.swift; sourceTree = "<group>"; };
 		686D4587245D2DEB0017B05F /* RootRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
-		686D4592245D2DEB0017B05F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		686D45A2245D30A80017B05F /* TopContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopContract.swift; sourceTree = "<group>"; };
 		686D45A4245D41710017B05F /* TopPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPresenter.swift; sourceTree = "<group>"; };
 		686D45A6245D42290017B05F /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +76,9 @@
 		686D45AA245D42990017B05F /* TopRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRouter.swift; sourceTree = "<group>"; };
 		686D45AE245D45B70017B05F /* Top.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Top.storyboard; sourceTree = "<group>"; };
 		686D45B1245D47260017B05F /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		686D45EF245E4FC20017B05F /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		686D45F1245E52520017B05F /* ExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
+		686D45F3245E80460017B05F /* UIView+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Border.swift"; sourceTree = "<group>"; };
 		9A0F362A630C7EF971D1ABC9 /* Pods_CheckExchangeRate_CheckExchangeRateUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckExchangeRate_CheckExchangeRateUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D93949EF4C1DE17F7C433DB0 /* Pods_CheckExchangeRateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckExchangeRateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E422F8E96E4D94A60A2F4060 /* Pods_CheckExchangeRate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckExchangeRate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -263,7 +267,8 @@
 		686D4591245D2DEB0017B05F /* Realm */ = {
 			isa = PBXGroup;
 			children = (
-				686D4592245D2DEB0017B05F /* User.swift */,
+				686D45EF245E4FC20017B05F /* Currency.swift */,
+				686D45F1245E52520017B05F /* ExchangeRate.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 		686D45A0245D2DFB0017B05F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				686D45F3245E80460017B05F /* UIView+Border.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -570,11 +576,13 @@
 				686D45A7245D42290017B05F /* TopViewController.swift in Sources */,
 				6845F01B245B110B004F35FE /* ViewController.swift in Sources */,
 				686D4599245D2DEB0017B05F /* RootWireframe.swift in Sources */,
+				686D45F4245E80460017B05F /* UIView+Border.swift in Sources */,
 				686D45A5245D41710017B05F /* TopPresenter.swift in Sources */,
 				686D45AB245D42990017B05F /* TopRouter.swift in Sources */,
 				6845F017245B110B004F35FE /* AppDelegate.swift in Sources */,
+				686D45F2245E52520017B05F /* ExchangeRate.swift in Sources */,
 				686D459A245D2DEB0017B05F /* RootRouter.swift in Sources */,
-				686D459F245D2DEB0017B05F /* User.swift in Sources */,
+				686D45F0245E4FC20017B05F /* Currency.swift in Sources */,
 				6845F019245B110B004F35FE /* SceneDelegate.swift in Sources */,
 				686D45A3245D30A80017B05F /* TopContract.swift in Sources */,
 				686D45B2245D47260017B05F /* R.generated.swift in Sources */,

@@ -14,6 +14,28 @@ class TopInteractor {
 }
 
 extension TopInteractor: TopUseCase {
+    func getCurrencyListData() {
+        
+    }
+    
+    func saveCurrencyListData() {
+        
+    }
+    
+    func getRateData() {
+    
+    }
+    
+    func saveRateData() {
+    
+    }
+    
+    func calcurate() {
+    
+    }
+    
+
+    
     
 }
 

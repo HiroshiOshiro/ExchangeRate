@@ -23,6 +23,18 @@ class TopPresenter: TopPresentation {
 }
 
 extension TopPresenter: TopInteractorOutput {
+    func gotCurrencyListData() {
+            
+    }
+    
+    func gotRateData() {
+            
+    }
+    
+    func gotCaluculateResult() {
+        
+    }
+    
     
 }
 

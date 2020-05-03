@@ -22,5 +22,17 @@ class TopViewController: UIViewController {
 
 
 extension TopViewController: TopView {
+    func showResult() {
+        
+    }
+    
+    func setCurrency() {
+        
+    }
+    
+    func exchangeCurrency() {
+        
+    }
+    
  
 }

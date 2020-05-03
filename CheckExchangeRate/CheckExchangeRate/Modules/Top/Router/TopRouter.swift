@@ -9,6 +9,10 @@
 import UIKit
 
 class TopRouter: TopWireframe {
+    func showCurrencyListScreen() {
+        
+    }
+    
     weak var viewController: UIViewController?
     
     private init(viewController: UIViewController) {

@@ -9,7 +9,9 @@
 import UIKit
 
 protocol TopView: class {
-    
+    func showResult()
+    func setCurrency()
+    func exchangeCurrency()
 }
 
 protocol TopPresentation: class {
@@ -21,12 +23,21 @@ protocol TopPresentation: class {
 }
 
 protocol TopUseCase: class {
+    func getCurrencyListData()
+    func saveCurrencyListData()
+    func getRateData()
+    func saveRateData()
+    func calcurate()
 }
 
 protocol TopInteractorOutput: class {
-    
+    func gotCurrencyListData()
+    func gotRateData()
+    func gotCaluculateResult()
 }
 
 protocol TopWireframe: class {
-    
+    var viewController: UIViewController? { get set }
+    static func assembleModule() -> UIViewController
+    func showCurrencyListScreen()
 }
