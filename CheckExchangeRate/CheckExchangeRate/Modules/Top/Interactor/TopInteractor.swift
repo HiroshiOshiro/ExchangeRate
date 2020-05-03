@@ -73,7 +73,7 @@ extension TopInteractor: TopUseCase {
                 
                 let realm = try Realm()
                 try realm.write {
-                    realm.deleteAll()
+                    realm.delete(realm.objects(Currency.self))
                     realm.add(currencies)
                 }
 //                print(Realm.Configuration.defaultConfiguration.fileURL!)
@@ -89,7 +89,47 @@ extension TopInteractor: TopUseCase {
     }
     
     func getRateData() {
-    
+        guard let url = URL(string: Define.getRateAPIPath) else {
+            return
+        }
+        
+//        let realm = try! Realm()
+//        let exchangeRate = realm.objects(ExchangeRate.self)
+//        if !exchangeRate.isEmpty && exchangeRate[0].timestamp < Date.init(timeIntervalSince1970: 0)
+        
+        let task: URLSessionTask  = URLSession.shared.dataTask(with: url, completionHandler: {data, response, error in
+            guard let data = data else {
+                return
+            }
+            do {
+                let response = try JSONDecoder().decode(RateListResponse.self, from: data)
+                print(response.self)
+                
+                let rateList = List<Rate>()
+                for rateDic in response.quotes {
+                    let rate = Rate()
+                    rate.code = rateDic.key
+                    rate.rate = rateDic.value
+                    rateList.append(rate)
+                }
+                
+                let exchangeRate = ExchangeRate()
+                exchangeRate.timestamp = response.timestamp
+                exchangeRate.source = response.source
+                exchangeRate.quotes = rateList
+                
+                let realm = try Realm()
+                try realm.write {
+                    realm.delete(realm.objects(ExchangeRate.self))
+                    realm.delete(realm.objects(Rate.self))
+                    realm.add(exchangeRate)
+                }
+                                print(Realm.Configuration.defaultConfiguration.fileURL!)
+            } catch {
+                print(error.localizedDescription)
+            }
+        })
+        task.resume()
     }
     
     func saveRateData() {

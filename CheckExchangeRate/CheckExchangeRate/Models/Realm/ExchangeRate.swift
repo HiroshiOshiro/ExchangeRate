@@ -10,8 +10,18 @@ import RealmSwift
 
 class ExchangeRate: Object {
     @objc dynamic var timestamp: Int = 0
+//    @objc dynamic var timestamp = Date()
     @objc dynamic var source: String = ""
-    var quotes: [String: Double] = ["": 0.0]
+    var quotes = List<Rate>()
+}
+
+class Rate: Object {
+    @objc dynamic var code: String = ""
+    @objc dynamic var rate: Double = 0.0
+        
+    override static func primaryKey() -> String? {
+        return "code"
+    }
 }
 
 
