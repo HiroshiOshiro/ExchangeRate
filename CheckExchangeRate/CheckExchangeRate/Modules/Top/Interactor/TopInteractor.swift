@@ -51,7 +51,37 @@ extension TopInteractor: TopUseCase {
     }
     
     func getCurrencyListData() {
+        guard let url = URL(string: Define.getCurrencyListAPIPath) else {
+            return
+        }
         
+        let task: URLSessionTask  = URLSession.shared.dataTask(with: url, completionHandler: {data, response, error in
+            guard let data = data else {
+                return
+            }
+            do {
+                let currencyListResponse = try JSONDecoder().decode(CurrencyListResponse.self, from: data)
+//                print(currencyListResponse.self)
+                
+                var currencies: [Currency] = []
+                for currencyDic in currencyListResponse.currencies {
+                    let currency = Currency()
+                    currency.code = currencyDic.key
+                    currency.fullname = currencyDic.value
+                    currencies.append(currency)
+                }
+                
+                let realm = try Realm()
+                try realm.write {
+                    realm.deleteAll()
+                    realm.add(currencies)
+                }
+//                print(Realm.Configuration.defaultConfiguration.fileURL!)
+            } catch {
+                print(error.localizedDescription)
+            }
+        })
+        task.resume()
     }
     
     func saveCurrencyListData() {

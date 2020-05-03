@@ -8,11 +8,16 @@
 
 import RealmSwift
 
+//class CurrencyData: Object {
+//    @objc dynamic var createdAt = Date()
+//    let currencies = List<Currency>()
+//}
+
 class Currency: Object {
-    @objc dynamic var shortName: String = ""
+    @objc dynamic var code: String = ""
     @objc dynamic var fullname: String = ""
-    
+        
     override static func primaryKey() -> String? {
-        return "shortName"
+        return "code"
     }
 }
