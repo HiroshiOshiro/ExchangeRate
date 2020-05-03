@@ -11,7 +11,7 @@ import RealmSwift
 class ExchangeRate: Object {
     @objc dynamic var timestamp: Int = 0
     @objc dynamic var source: String = ""
-    @objc dynamic var quotes: [String: Double] = ["": 0.0]
+    var quotes: [String: Double] = ["": 0.0]
 }
 
 

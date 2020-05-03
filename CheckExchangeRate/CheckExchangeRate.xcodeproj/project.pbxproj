@@ -28,6 +28,9 @@
 		686D45F0245E4FC20017B05F /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D45EF245E4FC20017B05F /* Currency.swift */; };
 		686D45F2245E52520017B05F /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D45F1245E52520017B05F /* ExchangeRate.swift */; };
 		686D45F4245E80460017B05F /* UIView+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D45F3245E80460017B05F /* UIView+Border.swift */; };
+		686D45F6245E8E000017B05F /* Double+Formater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D45F5245E8E000017B05F /* Double+Formater.swift */; };
+		686D45F8245E99A30017B05F /* UserPreferenceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D45F7245E99A30017B05F /* UserPreferenceData.swift */; };
+		686D45FB245EA8BA0017B05F /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D45FA245EA8BA0017B05F /* Define.swift */; };
 		AA20A050E29AF97A4402FA91 /* Pods_CheckExchangeRateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D93949EF4C1DE17F7C433DB0 /* Pods_CheckExchangeRateTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +82,9 @@
 		686D45EF245E4FC20017B05F /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		686D45F1245E52520017B05F /* ExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
 		686D45F3245E80460017B05F /* UIView+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Border.swift"; sourceTree = "<group>"; };
+		686D45F5245E8E000017B05F /* Double+Formater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Formater.swift"; sourceTree = "<group>"; };
+		686D45F7245E99A30017B05F /* UserPreferenceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferenceData.swift; sourceTree = "<group>"; };
+		686D45FA245EA8BA0017B05F /* Define.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		9A0F362A630C7EF971D1ABC9 /* Pods_CheckExchangeRate_CheckExchangeRateUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckExchangeRate_CheckExchangeRateUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D93949EF4C1DE17F7C433DB0 /* Pods_CheckExchangeRateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckExchangeRateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E422F8E96E4D94A60A2F4060 /* Pods_CheckExchangeRate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckExchangeRate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -241,6 +247,7 @@
 		686D4588245D2DEB0017B05F /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				686D45F9245EA0A60017B05F /* Static */,
 				686D4589245D2DEB0017B05F /* Enum */,
 				6845F01F245B110D004F35FE /* Assets.xcassets */,
 				6845F021245B110D004F35FE /* LaunchScreen.storyboard */,
@@ -269,6 +276,7 @@
 			children = (
 				686D45EF245E4FC20017B05F /* Currency.swift */,
 				686D45F1245E52520017B05F /* ExchangeRate.swift */,
+				686D45F7245E99A30017B05F /* UserPreferenceData.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -277,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				686D45F3245E80460017B05F /* UIView+Border.swift */,
+				686D45F5245E8E000017B05F /* Double+Formater.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -288,6 +297,14 @@
 				6845F018245B110B004F35FE /* SceneDelegate.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		686D45F9245EA0A60017B05F /* Static */ = {
+			isa = PBXGroup;
+			children = (
+				686D45FA245EA8BA0017B05F /* Define.swift */,
+			);
+			path = Static;
 			sourceTree = "<group>";
 		};
 		BF3CE1D19B96192176B782B3 /* Pods */ = {
@@ -577,13 +594,16 @@
 				6845F01B245B110B004F35FE /* ViewController.swift in Sources */,
 				686D4599245D2DEB0017B05F /* RootWireframe.swift in Sources */,
 				686D45F4245E80460017B05F /* UIView+Border.swift in Sources */,
+				686D45F6245E8E000017B05F /* Double+Formater.swift in Sources */,
 				686D45A5245D41710017B05F /* TopPresenter.swift in Sources */,
 				686D45AB245D42990017B05F /* TopRouter.swift in Sources */,
 				6845F017245B110B004F35FE /* AppDelegate.swift in Sources */,
 				686D45F2245E52520017B05F /* ExchangeRate.swift in Sources */,
 				686D459A245D2DEB0017B05F /* RootRouter.swift in Sources */,
+				686D45F8245E99A30017B05F /* UserPreferenceData.swift in Sources */,
 				686D45F0245E4FC20017B05F /* Currency.swift in Sources */,
 				6845F019245B110B004F35FE /* SceneDelegate.swift in Sources */,
+				686D45FB245EA8BA0017B05F /* Define.swift in Sources */,
 				686D45A3245D30A80017B05F /* TopContract.swift in Sources */,
 				686D45B2245D47260017B05F /* R.generated.swift in Sources */,
 			);

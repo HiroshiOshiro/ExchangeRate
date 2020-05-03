@@ -9,9 +9,9 @@
 import UIKit
 
 protocol TopView: class {
-    func showResult()
-    func setCurrency()
-    func exchangeCurrency()
+    func showResult(value: Double)
+    func setCurrency(isFrom: Bool, title: String)
+//    func exchangeCurrency()
 }
 
 protocol TopPresentation: class {
@@ -20,20 +20,26 @@ protocol TopPresentation: class {
     var router: TopWireframe! { get set }
     
     func viewDidLoad()
+    func didTapExcengeButton()
+    func didTapCurrencyButton(isFrom: Bool)
 }
 
 protocol TopUseCase: class {
+    func setDefaultUserPreferenceData()
+    func getUserPreferenceData()
     func getCurrencyListData()
     func saveCurrencyListData()
     func getRateData()
     func saveRateData()
+    func exchangeCurrency()
     func calcurate()
 }
 
 protocol TopInteractorOutput: class {
+    func gotUserPreferenceData(userPreference: UserPreferenceData)
     func gotCurrencyListData()
     func gotRateData()
-    func gotCaluculateResult()
+    func gotCaluculateResult(value: Double)
 }
 
 protocol TopWireframe: class {

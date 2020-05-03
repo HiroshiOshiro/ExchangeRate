@@ -54,6 +54,9 @@
                                     <constraint firstAttribute="height" constant="30" id="kgP-ki-Z3u"/>
                                 </constraints>
                                 <state key="normal" title="↑↓Exchenge"/>
+                                <connections>
+                                    <action selector="exchangeButtonTapped:" destination="3Ud-Ro-ssX" eventType="touchUpInside" id="xFR-SJ-mL7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaG-nr-WtQ">
                                 <rect key="frame" x="324" y="249.5" width="60" height="30"/>
@@ -130,6 +133,13 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <connections>
+                        <outlet property="exchangeButton" destination="VKO-xd-wuD" id="76p-f0-FZF"/>
+                        <outlet property="fromCurrencyButton" destination="csJ-kg-0en" id="ntN-nn-vDu"/>
+                        <outlet property="fromCurrencyTextField" destination="Sx9-0O-UlF" id="mUq-M3-ALk"/>
+                        <outlet property="toCurrencyButton" destination="gaG-nr-WtQ" id="grx-7N-Dkb"/>
+                        <outlet property="toCurrencyLabel" destination="8u6-H7-x7x" id="je3-ut-r15"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bR0-8U-czg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
