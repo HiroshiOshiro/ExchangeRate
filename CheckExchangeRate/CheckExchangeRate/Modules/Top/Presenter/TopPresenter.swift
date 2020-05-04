@@ -52,11 +52,11 @@ extension TopPresenter: TopInteractorOutput {
         self.userPreference = userPreference
     }
     
-    func gotCurrencyListData() {
+    func gotCurrencyList(data: [Currency]) {
         interactor.saveCurrencyListData()
     }
     
-    func gotRateData() {
+    func gotRateList(data: [Rate]) {
         interactor.saveRateData()
     }
     

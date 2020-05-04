@@ -37,8 +37,8 @@ protocol TopUseCase: class {
 
 protocol TopInteractorOutput: class {
     func gotUserPreferenceData(userPreference: UserPreferenceData)
-    func gotCurrencyListData()
-    func gotRateData()
+    func gotCurrencyList(data: [Currency])
+    func gotRateList(data: [Rate])
     func gotCaluculateResult(value: Double)
 }
 

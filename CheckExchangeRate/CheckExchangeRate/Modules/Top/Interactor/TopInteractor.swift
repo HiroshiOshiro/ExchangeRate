@@ -14,7 +14,7 @@ class TopInteractor {
 }
 
 extension TopInteractor: TopUseCase {
-
+    
     
     func setDefaultUserPreferenceData() {
         let realm = try! Realm()
@@ -51,6 +51,14 @@ extension TopInteractor: TopUseCase {
     }
     
     func getCurrencyListData() {
+        let realm = try! Realm()
+        let currencyData = realm.objects(CurrencyData.self)
+        if !currencyData.isEmpty && Date().timeIntervalSince(currencyData[0].savedAt) < 60 * 30 {
+            // return existing data from DB
+            self.output?.gotCurrencyList(data: Array(currencyData[0].currencies))
+            return
+        }
+        
         guard let url = URL(string: Define.getCurrencyListAPIPath) else {
             return
         }
@@ -61,9 +69,9 @@ extension TopInteractor: TopUseCase {
             }
             do {
                 let currencyListResponse = try JSONDecoder().decode(CurrencyListResponse.self, from: data)
-//                print(currencyListResponse.self)
+                //                print(currencyListResponse.self)
                 
-                var currencies: [Currency] = []
+                let currencies = List<Currency>()
                 for currencyDic in currencyListResponse.currencies {
                     let currency = Currency()
                     currency.code = currencyDic.key
@@ -71,12 +79,16 @@ extension TopInteractor: TopUseCase {
                     currencies.append(currency)
                 }
                 
+                let currencyData = CurrencyData()
+                currencyData.currencies = currencies
+                
                 let realm = try Realm()
                 try realm.write {
                     realm.delete(realm.objects(Currency.self))
-                    realm.add(currencies)
+                    realm.add(currencyData)
                 }
-//                print(Realm.Configuration.defaultConfiguration.fileURL!)
+                //                print(Realm.Configuration.defaultConfiguration.fileURL!)
+                self.output?.gotCurrencyList(data: Array(currencyData.currencies))
             } catch {
                 print(error.localizedDescription)
             }
@@ -89,13 +101,17 @@ extension TopInteractor: TopUseCase {
     }
     
     func getRateData() {
-        guard let url = URL(string: Define.getRateAPIPath) else {
+        let realm = try! Realm()
+        let exchangeRateData = realm.objects(ExchangeRateData.self)
+        if !exchangeRateData.isEmpty && Date().timeIntervalSince(exchangeRateData[0].savedAt) < 60 * 30 {
+            // return existing data from DB
+            self.output?.gotRateList(data: Array(exchangeRateData[0].quotes))
             return
         }
         
-//        let realm = try! Realm()
-//        let exchangeRate = realm.objects(ExchangeRate.self)
-//        if !exchangeRate.isEmpty && exchangeRate[0].timestamp < Date.init(timeIntervalSince1970: 0)
+        guard let url = URL(string: Define.getRateAPIPath) else {
+            return
+        }
         
         let task: URLSessionTask  = URLSession.shared.dataTask(with: url, completionHandler: {data, response, error in
             guard let data = data else {
@@ -113,18 +129,19 @@ extension TopInteractor: TopUseCase {
                     rateList.append(rate)
                 }
                 
-                let exchangeRate = ExchangeRate()
+                let exchangeRate = ExchangeRateData()
                 exchangeRate.timestamp = response.timestamp
                 exchangeRate.source = response.source
                 exchangeRate.quotes = rateList
                 
                 let realm = try Realm()
                 try realm.write {
-                    realm.delete(realm.objects(ExchangeRate.self))
+                    realm.delete(realm.objects(ExchangeRateData.self))
                     realm.delete(realm.objects(Rate.self))
                     realm.add(exchangeRate)
                 }
-                                print(Realm.Configuration.defaultConfiguration.fileURL!)
+                print(Realm.Configuration.defaultConfiguration.fileURL!)
+                self.output?.gotRateList(data: Array(exchangeRate.quotes))
             } catch {
                 print(error.localizedDescription)
             }
@@ -133,7 +150,7 @@ extension TopInteractor: TopUseCase {
     }
     
     func saveRateData() {
-    
+        
     }
     
     func exchangeCurrency() {
@@ -145,7 +162,7 @@ extension TopInteractor: TopUseCase {
     }
     
     func calcurate() {
-    
+        
     }
     
 

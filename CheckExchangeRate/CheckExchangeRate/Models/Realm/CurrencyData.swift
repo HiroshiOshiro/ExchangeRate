@@ -1,5 +1,5 @@
 //
-//  ExchangeRate.swift
+//  Currency.swift
 //  CheckExchangeRate
 //
 //  Created by hiroshi on 2020/05/03.
@@ -8,20 +8,16 @@
 
 import RealmSwift
 
-class ExchangeRate: Object {
-    @objc dynamic var timestamp: Int = 0
-//    @objc dynamic var timestamp = Date()
-    @objc dynamic var source: String = ""
-    var quotes = List<Rate>()
+class CurrencyData: Object {
+    @objc dynamic var savedAt = Date()
+    var currencies = List<Currency>()
 }
 
-class Rate: Object {
+class Currency: Object {
     @objc dynamic var code: String = ""
-    @objc dynamic var rate: Double = 0.0
+    @objc dynamic var fullname: String = ""
         
     override static func primaryKey() -> String? {
         return "code"
     }
 }
-
-
