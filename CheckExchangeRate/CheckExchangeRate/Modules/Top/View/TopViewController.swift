@@ -33,6 +33,8 @@ class TopViewController: UIViewController {
     }
     
     @IBAction func exchangeButtonTapped(_ sender: Any) {
+        fromCurrencyTextField.text = ""
+        toCurrencyLabel.text = String(0)
         presenter.didTapExcengeButton()
     }
 }
