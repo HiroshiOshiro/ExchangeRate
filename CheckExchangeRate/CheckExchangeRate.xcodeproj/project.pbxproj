@@ -59,7 +59,7 @@
 		568AD3B7C60711E5EF83350A /* Pods-CheckExchangeRate-CheckExchangeRateUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckExchangeRate-CheckExchangeRateUITests.release.xcconfig"; path = "Target Support Files/Pods-CheckExchangeRate-CheckExchangeRateUITests/Pods-CheckExchangeRate-CheckExchangeRateUITests.release.xcconfig"; sourceTree = "<group>"; };
 		608B1D7DB426A9DC44A4EC8F /* Pods-CheckExchangeRate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckExchangeRate.release.xcconfig"; path = "Target Support Files/Pods-CheckExchangeRate/Pods-CheckExchangeRate.release.xcconfig"; sourceTree = "<group>"; };
 		6835CB14245F179600EE9347 /* RateListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateListResponse.swift; sourceTree = "<group>"; };
-		6845F013245B110B004F35FE /* Check Rate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Check Rate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6845F013245B110B004F35FE /* CheckRate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckRate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6845F016245B110B004F35FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		6845F018245B110B004F35FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../SceneDelegate.swift; sourceTree = "<group>"; };
 		6845F01F245B110D004F35FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 		6845F014245B110B004F35FE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6845F013245B110B004F35FE /* Check Rate.app */,
+				6845F013245B110B004F35FE /* CheckRate.app */,
 				6845F029245B110D004F35FE /* CheckExchangeRateTests.xctest */,
 				6845F034245B110D004F35FE /* CheckExchangeRateUITests.xctest */,
 			);
@@ -361,7 +361,7 @@
 			);
 			name = CheckExchangeRate;
 			productName = CheckExchangeRate;
-			productReference = 6845F013245B110B004F35FE /* Check Rate.app */;
+			productReference = 6845F013245B110B004F35FE /* CheckRate.app */;
 			productType = "com.apple.product-type.application";
 		};
 		6845F028245B110D004F35FE /* CheckExchangeRateTests */ = {
@@ -791,9 +791,9 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.ooshiro010.CheckExchangeRate;
-				PRODUCT_NAME = "Check Rate";
+				PRODUCT_NAME = CheckRate;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -810,9 +810,9 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.ooshiro010.CheckExchangeRate;
-				PRODUCT_NAME = "Check Rate";
+				PRODUCT_NAME = CheckRate;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

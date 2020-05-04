@@ -9,6 +9,6 @@
 import RealmSwift
 
 class UserPreferenceData: Object {
-    @objc dynamic var lastFromCurrency: String = "USD"
-    @objc dynamic var lastToCurrency: String = "JPY"
+    @objc dynamic var fromCurrency: String = "USD"
+    @objc dynamic var toCurrency: String = "JPY"
 }

@@ -10,7 +10,7 @@
         <!--Top View Controller-->
         <scene sceneID="8eV-0x-RF4">
             <objects>
-                <viewController storyboardIdentifier="TopViewController" id="3Ud-Ro-ssX" customClass="TopViewController" customModule="CheckExchangeRate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TopViewController" id="3Ud-Ro-ssX" customClass="TopViewController" customModule="CheckRate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bVx-XY-KN2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,13 +21,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sx9-0O-UlF">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input amount of money." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Sx9-0O-UlF">
                                 <rect key="frame" x="30" y="120" width="284" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="L5i-5V-0KU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="continue"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="continue"/>
+                                <connections>
+                                    <action selector="didFromCurrencyTextFieldChanged:" destination="3Ud-Ro-ssX" eventType="editingChanged" id="b93-c2-YgQ"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="csJ-kg-0en">
                                 <rect key="frame" x="324" y="122" width="60" height="30"/>

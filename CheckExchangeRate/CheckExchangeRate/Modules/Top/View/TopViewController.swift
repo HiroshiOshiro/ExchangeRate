@@ -24,8 +24,15 @@ class TopViewController: UIViewController {
         presenter.viewDidLoad()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    @IBAction func didFromCurrencyTextFieldChanged(_ sender: Any) {
+        presenter.didChangeFromTextField(value: Int(fromCurrencyTextField.text ?? "") ?? 0)
+    }
+    
     @IBAction func exchangeButtonTapped(_ sender: Any) {
-//        exchangeCurrency()
         presenter.didTapExcengeButton()
     }
 }
@@ -47,11 +54,11 @@ extension TopViewController: TopView {
         button.setTitle(title, for: .normal)
     }
     
-//    func exchangeCurrency() {
-//        let fromTemp = fromCurrencyButton.titleLabel?.text
-//        
-//        
-//        setCurrency(isFrom: true, title: toCurrencyButton.titleLabel?.text ?? "")
-//        setCurrency(isFrom: false, title: fromTemp ?? "")
-//    }
+    //    func exchangeCurrency() {
+    //        let fromTemp = fromCurrencyButton.titleLabel?.text
+    //
+    //
+    //        setCurrency(isFrom: true, title: toCurrencyButton.titleLabel?.text ?? "")
+    //        setCurrency(isFrom: false, title: fromTemp ?? "")
+    //    }
 }

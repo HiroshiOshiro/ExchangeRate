@@ -25,8 +25,8 @@ class TopPresenter: TopPresentation {
     var userPreference: UserPreferenceData? {
         didSet {
             if let userPref = userPreference {
-                view?.setCurrency(isFrom: true, title: userPref.lastFromCurrency)
-                view?.setCurrency(isFrom: false, title: userPref.lastToCurrency)
+                view?.setCurrency(isFrom: true, title: userPref.fromCurrency)
+                view?.setCurrency(isFrom: false, title: userPref.toCurrency)
             }
         }
     }
@@ -34,8 +34,8 @@ class TopPresenter: TopPresentation {
     func viewDidLoad() {
         result = 0.0
         interactor.getUserPreferenceData()
-        interactor.getCurrencyListData()
-        interactor.getRateData()
+        interactor.fetchCurrencyListData()
+        interactor.fetchRateData()
     }
     
     func didTapExcengeButton() {
@@ -44,6 +44,10 @@ class TopPresenter: TopPresentation {
     
     func didTapCurrencyButton(isFrom: Bool) {
         
+    }
+    
+    func didChangeFromTextField(value: Int) {
+        interactor.calcurate(fromAmount: value)
     }
 }
 

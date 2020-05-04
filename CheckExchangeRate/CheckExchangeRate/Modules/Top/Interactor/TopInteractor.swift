@@ -19,8 +19,8 @@ extension TopInteractor: TopUseCase {
     func setDefaultUserPreferenceData() {
         let realm = try! Realm()
         let userPreference = UserPreferenceData()
-        userPreference.lastFromCurrency = Define.defaultFromCurrency
-        userPreference.lastToCurrency = Define.defaultToCurrency
+        userPreference.fromCurrency = Define.defaultFromCurrency
+        userPreference.toCurrency = Define.defaultToCurrency
         try! realm.write {
             realm.add(userPreference)
         }
@@ -31,10 +31,10 @@ extension TopInteractor: TopUseCase {
         let userPreference = realm.objects(UserPreferenceData.self)
         try! realm.write {
             if let fromCurrency = fromCurrency {
-                userPreference[0].lastFromCurrency = fromCurrency
+                userPreference[0].fromCurrency = fromCurrency
             }
             if let toCUrrency = toCUrrency {
-                userPreference[0].lastToCurrency = toCUrrency
+                userPreference[0].toCurrency = toCUrrency
             }
         }
     }
@@ -47,10 +47,10 @@ extension TopInteractor: TopUseCase {
             setDefaultUserPreferenceData()
         }
         
-        output?.gotUserPreferenceData(userPreference: userPreference[0])
+        self.output?.gotUserPreferenceData(userPreference: userPreference[0])
     }
     
-    func getCurrencyListData() {
+    func fetchCurrencyListData() {
         let realm = try! Realm()
         let currencyData = realm.objects(CurrencyData.self)
         if !currencyData.isEmpty && Date().timeIntervalSince(currencyData[0].savedAt) < 60 * 30 {
@@ -100,7 +100,7 @@ extension TopInteractor: TopUseCase {
         
     }
     
-    func getRateData() {
+    func fetchRateData() {
         let realm = try! Realm()
         let exchangeRateData = realm.objects(ExchangeRateData.self)
         if !exchangeRateData.isEmpty && Date().timeIntervalSince(exchangeRateData[0].savedAt) < 60 * 30 {
@@ -157,17 +157,35 @@ extension TopInteractor: TopUseCase {
         let realm = try! Realm()
         let userPreference = realm.objects(UserPreferenceData.self)
         
-        setUserPreferenceData(fromCurrency: userPreference[0].lastToCurrency, toCUrrency: userPreference[0].lastFromCurrency)
+        setUserPreferenceData(fromCurrency: userPreference[0].toCurrency, toCUrrency: userPreference[0].fromCurrency)
         getUserPreferenceData()
     }
     
-    func calcurate() {
+    func calcurate(fromAmount: Int) {
+        let realm = try! Realm()
+        guard let userPreference = realm.objects(UserPreferenceData.self).first,
+            let source = realm.objects(ExchangeRateData.self).first?.source else {
+            // error:
+            return
+        }
         
+        let fromCurrency = userPreference.fromCurrency
+        let toCurrency = userPreference.toCurrency
+        
+        let rateFrom = realm.objects(Rate.self).filter("code == %@", source + fromCurrency)
+        let rateTo = realm.objects(Rate.self).filter("code == %@", source + toCurrency)
+        
+        if let rateFromValue = rateFrom.first?.rate,
+            let rateToValue = rateTo.first?.rate {
+            
+            let result = Double(fromAmount) / rateFromValue * rateToValue
+//            print(result)
+//            self.output?.gotCaluculateResult(value: (Double(fromAmount) / rateFromValue * rateFromValue))
+            self.output?.gotCaluculateResult(value: result)
+        } else {
+            
+        }
     }
-    
-
-    
-    
 }
 
 

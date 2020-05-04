@@ -22,17 +22,18 @@ protocol TopPresentation: class {
     func viewDidLoad()
     func didTapExcengeButton()
     func didTapCurrencyButton(isFrom: Bool)
+    func didChangeFromTextField(value: Int)
 }
 
 protocol TopUseCase: class {
     func setDefaultUserPreferenceData()
     func getUserPreferenceData()
-    func getCurrencyListData()
+    func fetchCurrencyListData()
     func saveCurrencyListData()
-    func getRateData()
+    func fetchRateData()
     func saveRateData()
     func exchangeCurrency()
-    func calcurate()
+    func calcurate(fromAmount: Int)
 }
 
 protocol TopInteractorOutput: class {
