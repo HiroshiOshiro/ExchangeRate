@@ -1,4 +1,14 @@
 PODS:
+  - GradientCircularProgress (3.13.0)
+  - PromiseKit (6.13.1):
+    - PromiseKit/CorePromise (= 6.13.1)
+    - PromiseKit/Foundation (= 6.13.1)
+    - PromiseKit/UIKit (= 6.13.1)
+  - PromiseKit/CorePromise (6.13.1)
+  - PromiseKit/Foundation (6.13.1):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.13.1):
+    - PromiseKit/CorePromise
   - R.swift (5.2.2):
     - R.swift.Library (~> 5.2.0)
   - R.swift.Library (5.2.0)
@@ -9,22 +19,36 @@ PODS:
     - Realm (= 4.4.1)
 
 DEPENDENCIES:
+  - GradientCircularProgress (from `https://github.com/keygx/GradientCircularProgress`)
+  - PromiseKit (~> 6.13.0)
   - R.swift
   - RealmSwift
 
 SPEC REPOS:
   trunk:
+    - PromiseKit
     - R.swift
     - R.swift.Library
     - Realm
     - RealmSwift
 
+EXTERNAL SOURCES:
+  GradientCircularProgress:
+    :git: https://github.com/keygx/GradientCircularProgress
+
+CHECKOUT OPTIONS:
+  GradientCircularProgress:
+    :commit: 9e2dc60d335ee6eb3677bfd9f965f0ade3607f4c
+    :git: https://github.com/keygx/GradientCircularProgress
+
 SPEC CHECKSUMS:
+  GradientCircularProgress: f5a04b862adc1fbafbd21c0ff450ed7d74d1926e
+  PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
   R.swift: 7c52cdc57a66840ffe6cbd8a823d732059d42a32
   R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
   Realm: 4eb04d7487bd43c0581256f40b424eafb711deff
   RealmSwift: 3eb8924ff7100df5928c7602f71d0fec51e7c9c5
 
-PODFILE CHECKSUM: 2b9d4dff43678916fb4c2765030917749e27e22e
+PODFILE CHECKSUM: d4776d2649e9dbd2ff59551a250ff063da896842
 
 COCOAPODS: 1.9.1
