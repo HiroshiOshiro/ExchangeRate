@@ -9,7 +9,7 @@ target 'CheckExchangeRate' do
   pod 'RealmSwift'
   pod 'R.swift'
   pod 'PromiseKit', '~> 6.13.0'
-  pod 'GradientCircularProgress', :git => 'https://github.com/keygx/GradientCircularProgress'
+  pod 'PKHUD'
 
   target 'CheckExchangeRateTests' do
     inherit! :search_paths
