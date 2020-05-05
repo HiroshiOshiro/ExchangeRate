@@ -31,17 +31,17 @@ class TopPresenter: TopPresentation {
     }
     
     func viewDidLoad() {
-        view?.showIndicator()
+//        view?.showIndicator()
         interactor.getUserPreferenceData()
-        interactor.fetchCurrencyListData()
-        interactor.fetchRateData()
-        
-        view?.hideIndicator()
+        fetchCurrencyListDataFromAPI()
+        fetchRateDataFromAPI()
     }
     
-    func setInitialValue() {
-        view?.setIinitailValue()
-    }
+//    func setInitialValue() {
+//        view?.setIinitailValue()
+//    }
+    
+
     
     func didTapExcengeButton() {
         interactor.exchangeCurrency()
@@ -54,6 +54,17 @@ class TopPresenter: TopPresentation {
     func didChangeFromTextField(value: Int) {
         interactor.calcurate(fromAmount: value)
     }
+    
+    // MARK: Private Method
+    private func fetchCurrencyListDataFromAPI() {
+        view?.showIndicator()
+        interactor.fetchCurrencyListData()
+    }
+    
+    private func fetchRateDataFromAPI() {
+        view?.showIndicator()
+        interactor.fetchRateData()
+    }
 }
 
 extension TopPresenter: TopInteractorOutput {
@@ -62,11 +73,18 @@ extension TopPresenter: TopInteractorOutput {
     }
     
     func gotCurrencyList(data: [Currency]) {
-        interactor.saveCurrencyListData()
+        DispatchQueue.main.async {
+            self.view?.hideIndicator()
+        }
+//        interactor.saveCurrencyListData()
     }
     
     func gotRateList(data: [Rate]) {
-        interactor.saveRateData()
+        
+        DispatchQueue.main.async {
+            self.view?.hideIndicator()
+        }
+//        interactor.saveRateData()
     }
     
     func gotCaluculateResult(value: Double) {

@@ -87,7 +87,6 @@ extension TopInteractor: TopUseCase {
                     realm.delete(realm.objects(Currency.self))
                     realm.add(currencyData)
                 }
-                //                print(Realm.Configuration.defaultConfiguration.fileURL!)
                 self.output?.gotCurrencyList(data: Array(currencyData.currencies))
             } catch {
                 print(error.localizedDescription)
@@ -140,7 +139,7 @@ extension TopInteractor: TopUseCase {
                     realm.delete(realm.objects(Rate.self))
                     realm.add(exchangeRate)
                 }
-                print(Realm.Configuration.defaultConfiguration.fileURL!)
+                //                print(Realm.Configuration.defaultConfiguration.fileURL!)
                 self.output?.gotRateList(data: Array(exchangeRate.quotes))
             } catch {
                 print(error.localizedDescription)

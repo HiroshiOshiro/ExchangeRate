@@ -23,7 +23,7 @@ protocol TopPresentation: class {
     var router: TopWireframe! { get set }
     
     func viewDidLoad()
-    func setInitialValue()
+//    func setInitialValue()
     func didTapExcengeButton()
     func didTapCurrencyButton(isFrom: Bool)
     func didChangeFromTextField(value: Int)
