@@ -10,18 +10,11 @@ import UIKit
 import PKHUD
 
 class CurrencyListViewController: UIViewController {
-    
-    @IBOutlet weak var fromCurrencyTextField: UITextField!
-    @IBOutlet weak var fromCurrencyButton: UIButton!
-    @IBOutlet weak var toCurrencyLabel: UILabel!
-    @IBOutlet weak var toCurrencyButton: UIButton!
-    @IBOutlet weak var exchangeButton: UIButton!
-    
+        
     var presenter: CurrencyListPresentation!
     
-
-    
-    
+    var isFromButton: Bool?
+    var currencies: [Currency]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +28,8 @@ class CurrencyListViewController: UIViewController {
 
 extension CurrencyListViewController: CurrencyListView {
     func showCurrencyList(currencies: [Currency]) {
-        
+        self.currencies = currencies
+//        table 表示
     }
     
     

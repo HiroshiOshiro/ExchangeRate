@@ -47,8 +47,8 @@ class TopPresenter: TopPresentation {
         interactor.exchangeCurrency()
     }
     
-    func didTapCurrencyButton(isFrom: Bool) {
-        
+    func didTapCurrencyButton(isFromButton: Bool) {
+        router.showCurrencyListScreen(isFromButton: isFromButton)
     }
     
     func didChangeFromTextField(value: Int) {

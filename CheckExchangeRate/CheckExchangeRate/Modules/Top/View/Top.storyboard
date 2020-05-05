@@ -29,7 +29,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="continue"/>
                                 <connections>
-                                    <action selector="didFromCurrencyTextFieldChanged:" destination="3Ud-Ro-ssX" eventType="editingChanged" id="b93-c2-YgQ"/>
+                                    <action selector="whenFromCurrencyTextFieldChanged:" destination="3Ud-Ro-ssX" eventType="editingChanged" id="b93-c2-YgQ"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="csJ-kg-0en">
@@ -50,6 +50,9 @@
                                         <real key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="fromCurrencyButtonTapped:" destination="3Ud-Ro-ssX" eventType="touchUpInside" id="tt4-3O-QFz"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VKO-xd-wuD">
                                 <rect key="frame" x="309" y="189" width="90" height="30"/>
@@ -79,6 +82,9 @@
                                         <color key="value" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="toCurrencyButtonTapped:" destination="3Ud-Ro-ssX" eventType="touchUpInside" id="4Ax-uT-aTD"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xVe-Ph-jrf">
                                 <rect key="frame" x="157" y="174" width="40" height="60"/>

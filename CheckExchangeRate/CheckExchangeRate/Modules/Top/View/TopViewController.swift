@@ -38,8 +38,16 @@ class TopViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    @IBAction func didFromCurrencyTextFieldChanged(_ sender: Any) {
+    @IBAction func whenFromCurrencyTextFieldChanged(_ sender: Any) {
         presenter.didChangeFromTextField(value: Int(fromCurrencyTextField.text ?? "") ?? 0)
+    }
+    
+    @IBAction func fromCurrencyButtonTapped(_ sender: Any) {
+        presenter.didTapCurrencyButton(isFromButton: true)
+    }
+    
+    @IBAction func toCurrencyButtonTapped(_ sender: Any) {
+        presenter.didTapCurrencyButton(isFromButton: false)
     }
     
     @IBAction func exchangeButtonTapped(_ sender: Any) {
