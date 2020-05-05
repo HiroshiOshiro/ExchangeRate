@@ -7,18 +7,17 @@
 //
 
 import Foundation
+//import PromiseKit
 
 class TopPresenter: TopPresentation {
 
-    
-    
     weak var view: TopView?
     var interactor: TopUseCase!
     var router: TopWireframe!
-    
-    var result: Double? {
+        
+    var result: Double = 0.0 {
         didSet {
-            view?.showResult(value: result ?? 0.0)
+            view?.showCalculationResult(value: result)
         }
     }
     
@@ -32,10 +31,16 @@ class TopPresenter: TopPresentation {
     }
     
     func viewDidLoad() {
-        result = 0.0
+        view?.showIndicator()
         interactor.getUserPreferenceData()
         interactor.fetchCurrencyListData()
         interactor.fetchRateData()
+        
+        view?.hideIndicator()
+    }
+    
+    func setInitialValue() {
+        view?.setIinitailValue()
     }
     
     func didTapExcengeButton() {

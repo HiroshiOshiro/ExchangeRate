@@ -9,7 +9,10 @@
 import UIKit
 
 protocol TopView: class {
-    func showResult(value: Double)
+    func showIndicator()
+    func hideIndicator()
+    func setIinitailValue()
+    func showCalculationResult(value: Double)
     func setCurrency(isFrom: Bool, title: String)
 //    func exchangeCurrency()
 }
@@ -20,6 +23,7 @@ protocol TopPresentation: class {
     var router: TopWireframe! { get set }
     
     func viewDidLoad()
+    func setInitialValue()
     func didTapExcengeButton()
     func didTapCurrencyButton(isFrom: Bool)
     func didChangeFromTextField(value: Int)

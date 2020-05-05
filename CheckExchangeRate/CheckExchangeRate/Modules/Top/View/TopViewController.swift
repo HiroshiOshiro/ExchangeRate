@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 class TopViewController: UIViewController {
     
@@ -21,6 +22,7 @@ class TopViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setIinitailValue()
         presenter.viewDidLoad()
     }
     
@@ -33,15 +35,28 @@ class TopViewController: UIViewController {
     }
     
     @IBAction func exchangeButtonTapped(_ sender: Any) {
-        fromCurrencyTextField.text = ""
-        toCurrencyLabel.text = String(0)
+        setIinitailValue()
         presenter.didTapExcengeButton()
     }
 }
 
 
 extension TopViewController: TopView {
-    func showResult(value: Double) {
+    func showIndicator() {
+        PKHUD.sharedHUD.contentView = PKHUDProgressView(title: "Fetching Data...", subtitle: nil)
+        PKHUD.sharedHUD.show(onView: self.view)
+    }
+    
+    func hideIndicator() {
+        PKHUD.sharedHUD.hide()
+    }
+    
+    func setIinitailValue() {
+        fromCurrencyTextField.text = ""
+        toCurrencyLabel.text = String(0)
+    }
+    
+    func showCalculationResult(value: Double) {
         toCurrencyLabel.text = value.formatWithComma
     }
     
