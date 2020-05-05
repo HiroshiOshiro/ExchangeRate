@@ -15,20 +15,20 @@ class TopPresenter: TopPresentation {
     var interactor: TopUseCase!
     var router: TopWireframe!
         
-    var result: Double = 0.0 {
-        didSet {
-            view?.showCalculationResult(value: result)
-        }
-    }
+//    var result: Double = 0.0 {
+//        didSet {
+//            view?.showCalculationResult(value: result)
+//        }
+//    }
     
-    var userPreference: UserPreferenceData? {
-        didSet {
-            if let userPref = userPreference {
-                view?.setCurrency(isFrom: true, title: userPref.fromCurrency)
-                view?.setCurrency(isFrom: false, title: userPref.toCurrency)
-            }
-        }
-    }
+//    var userPreference: UserPreferenceData? {
+//        didSet {
+//            if let userPref = userPreference {
+//                view?.setCurrency(isFrom: true, title: userPref.fromCurrency)
+//                view?.setCurrency(isFrom: false, title: userPref.toCurrency)
+//            }
+//        }
+//    }
     
     func viewDidLoad() {
 //        view?.showIndicator()
@@ -69,7 +69,9 @@ class TopPresenter: TopPresentation {
 
 extension TopPresenter: TopInteractorOutput {
     func gotUserPreferenceData(userPreference: UserPreferenceData) {
-        self.userPreference = userPreference
+//        self.userPreference = userPreference
+        self.view?.setCurrency(isFrom: true, title: userPreference.fromCurrency)
+        self.view?.setCurrency(isFrom: false, title: userPreference.toCurrency)
     }
     
     func gotCurrencyList(data: [Currency]) {
@@ -88,7 +90,8 @@ extension TopPresenter: TopInteractorOutput {
     }
     
     func gotCaluculateResult(value: Double) {
-        self.result = value
+//        self.result = value
+        self.view?.showCalculationResult(value: value)
     }
 }
 

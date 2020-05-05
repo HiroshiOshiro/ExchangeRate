@@ -19,6 +19,14 @@ class TopViewController: UIViewController {
     
     var presenter: TopPresentation!
     
+//    var result: Double = 0.0 {
+//        didSet {
+//            showCalculationResult(value: result)
+//        }
+//    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
