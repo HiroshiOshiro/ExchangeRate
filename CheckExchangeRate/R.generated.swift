@@ -89,12 +89,21 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 2 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
   struct storyboard {
+    /// Storyboard `CurrencyList`.
+    static let currencyList = _R.storyboard.currencyList()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Top`.
     static let top = _R.storyboard.top()
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "CurrencyList", bundle: ...)`
+    static func currencyList(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.currencyList)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
@@ -169,12 +178,37 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       #if os(iOS) || os(tvOS)
+      try currencyList.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
       try launchScreen.validate()
       #endif
       #if os(iOS) || os(tvOS)
       try top.validate()
       #endif
     }
+
+    #if os(iOS) || os(tvOS)
+    struct currencyList: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = CurrencyListViewController
+
+      let bundle = R.hostingBundle
+      let currencyListViewController = StoryboardViewControllerResource<CurrencyListViewController>(identifier: "CurrencyListViewController")
+      let name = "CurrencyList"
+
+      func currencyListViewController(_: Void = ()) -> CurrencyListViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: currencyListViewController)
+      }
+
+      static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+        if _R.storyboard.currencyList().currencyListViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'currencyListViewController' could not be loaded from storyboard 'CurrencyList' as 'CurrencyListViewController'.") }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
