@@ -8,7 +8,6 @@ target 'CheckExchangeRate' do
   # Pods for CheckExchangeRate
   pod 'RealmSwift'
   pod 'R.swift'
-  pod 'PromiseKit', '~> 6.13.0'
   pod 'PKHUD'
 
   target 'CheckExchangeRateTests' do

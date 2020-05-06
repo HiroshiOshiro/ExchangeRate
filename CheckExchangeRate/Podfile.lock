@@ -1,14 +1,5 @@
 PODS:
   - PKHUD (5.3.0)
-  - PromiseKit (6.13.1):
-    - PromiseKit/CorePromise (= 6.13.1)
-    - PromiseKit/Foundation (= 6.13.1)
-    - PromiseKit/UIKit (= 6.13.1)
-  - PromiseKit/CorePromise (6.13.1)
-  - PromiseKit/Foundation (6.13.1):
-    - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.13.1):
-    - PromiseKit/CorePromise
   - R.swift (5.2.2):
     - R.swift.Library (~> 5.2.0)
   - R.swift.Library (5.2.0)
@@ -20,14 +11,12 @@ PODS:
 
 DEPENDENCIES:
   - PKHUD
-  - PromiseKit (~> 6.13.0)
   - R.swift
   - RealmSwift
 
 SPEC REPOS:
   trunk:
     - PKHUD
-    - PromiseKit
     - R.swift
     - R.swift.Library
     - Realm
@@ -35,12 +24,11 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
-  PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
   R.swift: 7c52cdc57a66840ffe6cbd8a823d732059d42a32
   R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
   Realm: 4eb04d7487bd43c0581256f40b424eafb711deff
   RealmSwift: 3eb8924ff7100df5928c7602f71d0fec51e7c9c5
 
-PODFILE CHECKSUM: 129cd836c4abc2b4272da0ba75e1f33b44e9b9ed
+PODFILE CHECKSUM: a43544bffab69a4b3cbc5ad2f1cc1da05d74eab2
 
 COCOAPODS: 1.9.1
