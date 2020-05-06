@@ -37,7 +37,7 @@ class TopViewController: UIViewController {
     }
     
     @IBAction func whenFromCurrencyTextFieldChanged(_ sender: Any) {
-        presenter.didChangeFromTextField(value: Int(fromCurrencyTextField.text ?? "") ?? 0)
+        presenter.didChangeFromTextField(inputValue: Int(fromCurrencyTextField.text ?? "") ?? 0)
     }
     
     @IBAction func fromCurrencyButtonTapped(_ sender: UIButton) {
@@ -74,9 +74,9 @@ extension TopViewController: TopView {
         toCurrencyLabel.text = value.formatWithComma
     }
     
-    func setCurrency(isFrom: Bool, title: String) {
+    func setCurrencyTitle(title: String, isFromButton: Bool) {
         let button: UIButton
-        if isFrom {
+        if isFromButton {
             button = fromCurrencyButton
         } else {
             button = toCurrencyButton

@@ -67,36 +67,34 @@ extension TopInteractor: TopUseCase {
             guard let data = data else {
                 return
             }
-            do {
-                let currencyListResponse = try JSONDecoder().decode(CurrencyListResponse.self, from: data)
-                //                print(currencyListResponse.self)
-                
-                let currencies = List<Currency>()
-                for currencyDic in currencyListResponse.currencies {
-                    let currency = Currency()
-                    currency.code = currencyDic.key
-                    currency.fullname = currencyDic.value
-                    currencies.append(currency)
-                }
-                
-                let currencyData = CurrencyData()
-                currencyData.currencies = currencies
-                
-                let realm = try Realm()
-                try realm.write {
-                    realm.delete(realm.objects(Currency.self))
-                    realm.add(currencyData)
-                }
-                self.output?.gotCurrencyList(data: Array(currencyData.currencies))
-            } catch {
-                print(error.localizedDescription)
-            }
+            
+            let currencyListResponse = try! JSONDecoder().decode(CurrencyListResponse.self, from: data)
+            let currencyData = self.saveCurrencyData(apiRespose: currencyListResponse)
+            self.output?.gotCurrencyList(data: Array(currencyData.currencies))
+            
         })
         task.resume()
     }
     
-    func saveCurrencyListData() {
+    private func saveCurrencyData(apiRespose: CurrencyListResponse) -> CurrencyData {
+        let currencyData = CurrencyData()
         
+        let currencies = List<Currency>()
+        for currencyDic in apiRespose.currencies {
+            let currency = Currency()
+            currency.code = currencyDic.key
+            currency.fullname = currencyDic.value
+            currencies.append(currency)
+        }
+        currencyData.currencies = currencies
+        
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(realm.objects(Currency.self))
+            realm.add(currencyData)
+        }
+        
+        return currencyData
     }
     
     func fetchRateData() {
@@ -116,40 +114,38 @@ extension TopInteractor: TopUseCase {
             guard let data = data else {
                 return
             }
-            do {
-                let response = try JSONDecoder().decode(RateListResponse.self, from: data)
-                print(response.self)
-                
-                let rateList = List<Rate>()
-                for rateDic in response.quotes {
-                    let rate = Rate()
-                    rate.code = rateDic.key
-                    rate.rate = rateDic.value
-                    rateList.append(rate)
-                }
-                
-                let exchangeRate = ExchangeRateData()
-                exchangeRate.timestamp = response.timestamp
-                exchangeRate.source = response.source
-                exchangeRate.quotes = rateList
-                
-                let realm = try Realm()
-                try realm.write {
-                    realm.delete(realm.objects(ExchangeRateData.self))
-                    realm.delete(realm.objects(Rate.self))
-                    realm.add(exchangeRate)
-                }
-                //                print(Realm.Configuration.defaultConfiguration.fileURL!)
-                self.output?.gotRateList(data: Array(exchangeRate.quotes))
-            } catch {
-                print(error.localizedDescription)
-            }
+            
+            let response = try! JSONDecoder().decode(RateListResponse.self, from: data)
+            let exchangeRateData = self.saveRateData(apiRespose:  response)
+            self.output?.gotRateList(data: Array(exchangeRateData.quotes))
         })
         task.resume()
     }
     
-    func saveRateData() {
+    private func saveRateData(apiRespose: RateListResponse) -> ExchangeRateData {
+        let exchangeRateData = ExchangeRateData()
         
+        let rateList = List<Rate>()
+        for rateDic in apiRespose.quotes {
+            let rate = Rate()
+            rate.code = rateDic.key
+            rate.rate = rateDic.value
+            rateList.append(rate)
+        }
+        
+        let exchangeRate = ExchangeRateData()
+        exchangeRate.timestamp = apiRespose.timestamp
+        exchangeRate.source = apiRespose.source
+        exchangeRate.quotes = rateList
+        
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(realm.objects(ExchangeRateData.self))
+            realm.delete(realm.objects(Rate.self))
+            realm.add(exchangeRate)
+        }
+        
+        return exchangeRateData
     }
     
     func exchangeCurrency() {

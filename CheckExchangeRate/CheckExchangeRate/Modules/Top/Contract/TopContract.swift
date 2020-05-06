@@ -13,7 +13,7 @@ protocol TopView: class {
     func hideIndicator()
     func setIinitailValue()
     func showCalculationResult(value: Double)
-    func setCurrency(isFrom: Bool, title: String)
+    func setCurrencyTitle(title: String, isFromButton: Bool)
 }
 
 protocol TopPresentation: class {
@@ -25,16 +25,14 @@ protocol TopPresentation: class {
     func viewWillAppear(fromAmout: Int?)
     func didTapExcengeButton()
     func didTapCurrencyButton(currencyCode: String, isFromButton: Bool)
-    func didChangeFromTextField(value: Int)
+    func didChangeFromTextField(inputValue: Int)
 }
 
 protocol TopUseCase: class {
     func setDefaultUserPreferenceData()
     func getUserPreferenceData()
     func fetchCurrencyListData()
-    func saveCurrencyListData()
     func fetchRateData()
-    func saveRateData()
     func exchangeCurrency()
     func calcurate(fromAmount: Int)
 }

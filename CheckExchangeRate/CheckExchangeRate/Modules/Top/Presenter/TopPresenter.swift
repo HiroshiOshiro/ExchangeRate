@@ -40,8 +40,8 @@ class TopPresenter: TopPresentation {
         router.showCurrencyListScreen(currencyCode: currencyCode, isFromButton: isFromButton)
     }
     
-    func didChangeFromTextField(value: Int) {
-        interactor.calcurate(fromAmount: value)
+    func didChangeFromTextField(inputValue: Int) {
+        interactor.calcurate(fromAmount: inputValue)
     }
     
     // MARK: Private Method
@@ -58,8 +58,8 @@ class TopPresenter: TopPresentation {
 
 extension TopPresenter: TopInteractorOutput {
     func gotUserPreferenceData(userPreference: UserPreferenceData) {
-        self.view?.setCurrency(isFrom: true, title: userPreference.fromCurrency)
-        self.view?.setCurrency(isFrom: false, title: userPreference.toCurrency)
+        self.view?.setCurrencyTitle(title: userPreference.fromCurrency, isFromButton: true)
+        self.view?.setCurrencyTitle(title: userPreference.toCurrency, isFromButton: false)
     }
     
     func gotCurrencyList(data: [Currency]) {
