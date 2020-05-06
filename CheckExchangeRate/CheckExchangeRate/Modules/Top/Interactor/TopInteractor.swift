@@ -180,7 +180,8 @@ extension TopInteractor: TopUseCase {
             let result = Double(fromAmount) / rateFromValue * rateToValue
             self.output?.gotCaluculateResult(value: result)
         } else {
-            
+            // error: rates to calulation were not found
+            self.output?.gotCaluculateResult(value: 0.0)
         }
     }
 }

@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import CheckExchangeRate
+@testable import CheckRate
 
 class CheckExchangeRateTests: XCTestCase {
 

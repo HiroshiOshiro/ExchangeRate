@@ -157,7 +157,7 @@ struct R: Rswift.Validatable {
   /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `CurrencyCell`.
-    static let currencyCell: Rswift.ReuseIdentifier<CurrencyCell> = Rswift.ReuseIdentifier(identifier: "CurrencyCell")
+    static let currencyCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "CurrencyCell")
 
     fileprivate init() {}
   }
@@ -248,6 +248,7 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "textColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'textColor' is used in storyboard 'Top', but couldn't be loaded.") }
         }
         if _R.storyboard.top().topViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'topViewController' could not be loaded from storyboard 'Top' as 'TopViewController'.") }
       }

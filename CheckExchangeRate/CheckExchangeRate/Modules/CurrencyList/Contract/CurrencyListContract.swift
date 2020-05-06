@@ -18,8 +18,6 @@ protocol CurrencyListPresentation: class {
     var router: CurrencyListWireframe! { get set }
     
     func viewDidLoad()
-    func viewWillDisappear()
-    
     func didChangeSearchWord(searchWord: String)
     func didSelectCurrency(currency: Currency, isFromCurrency: Bool)
 }

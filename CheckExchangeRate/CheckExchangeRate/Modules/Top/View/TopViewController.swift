@@ -19,14 +19,6 @@ class TopViewController: UIViewController {
     
     var presenter: TopPresentation!
     
-//    var result: Double = 0.0 {
-//        didSet {
-//            showCalculationResult(value: result)
-//        }
-//    }
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -92,12 +84,4 @@ extension TopViewController: TopView {
         
         button.setTitle(title, for: .normal)
     }
-    
-    //    func exchangeCurrency() {
-    //        let fromTemp = fromCurrencyButton.titleLabel?.text
-    //
-    //
-    //        setCurrency(isFrom: true, title: toCurrencyButton.titleLabel?.text ?? "")
-    //        setCurrency(isFrom: false, title: fromTemp ?? "")
-    //    }
 }

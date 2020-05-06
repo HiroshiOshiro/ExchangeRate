@@ -14,7 +14,6 @@ protocol TopView: class {
     func setIinitailValue()
     func showCalculationResult(value: Double)
     func setCurrency(isFrom: Bool, title: String)
-//    func exchangeCurrency()
 }
 
 protocol TopPresentation: class {

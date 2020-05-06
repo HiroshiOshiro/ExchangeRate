@@ -15,24 +15,10 @@ class TopPresenter: TopPresentation {
     var interactor: TopUseCase!
     var router: TopWireframe!
         
-//    var result: Double = 0.0 {
-//        didSet {
-//            view?.showCalculationResult(value: result)
-//        }
-//    }
-    
-//    var userPreference: UserPreferenceData? {
-//        didSet {
-//            if let userPref = userPreference {
-//                view?.setCurrency(isFrom: true, title: userPref.fromCurrency)
-//                view?.setCurrency(isFrom: false, title: userPref.toCurrency)
-//            }
-//        }
-//    }
-    
     func viewDidLoad() {
-//        view?.showIndicator()
         interactor.getUserPreferenceData()
+        
+        // Get data from APIs
         fetchCurrencyListDataFromAPI()
         fetchRateDataFromAPI()
     }
@@ -45,12 +31,6 @@ class TopPresenter: TopPresentation {
             interactor.calcurate(fromAmount: amount)
         }
     }
-    
-//    func setInitialValue() {
-//        view?.setIinitailValue()
-//    }
-    
-
     
     func didTapExcengeButton() {
         interactor.exchangeCurrency()
@@ -78,7 +58,6 @@ class TopPresenter: TopPresentation {
 
 extension TopPresenter: TopInteractorOutput {
     func gotUserPreferenceData(userPreference: UserPreferenceData) {
-//        self.userPreference = userPreference
         self.view?.setCurrency(isFrom: true, title: userPreference.fromCurrency)
         self.view?.setCurrency(isFrom: false, title: userPreference.toCurrency)
     }
@@ -87,19 +66,15 @@ extension TopPresenter: TopInteractorOutput {
         DispatchQueue.main.async {
             self.view?.hideIndicator()
         }
-//        interactor.saveCurrencyListData()
     }
     
     func gotRateList(data: [Rate]) {
-        
         DispatchQueue.main.async {
             self.view?.hideIndicator()
         }
-//        interactor.saveRateData()
     }
     
     func gotCaluculateResult(value: Double) {
-//        self.result = value
         self.view?.showCalculationResult(value: value)
     }
 }

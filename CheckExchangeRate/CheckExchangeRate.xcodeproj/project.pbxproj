@@ -264,19 +264,11 @@
 			isa = PBXGroup;
 			children = (
 				686D45F9245EA0A60017B05F /* Static */,
-				686D4589245D2DEB0017B05F /* Enum */,
 				6845F01F245B110D004F35FE /* Assets.xcassets */,
 				6845F021245B110D004F35FE /* LaunchScreen.storyboard */,
 				686D45B1245D47260017B05F /* R.generated.swift */,
 			);
 			path = Resource;
-			sourceTree = "<group>";
-		};
-		686D4589245D2DEB0017B05F /* Enum */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Enum;
 			sourceTree = "<group>";
 		};
 		686D4590245D2DEB0017B05F /* Models */ = {

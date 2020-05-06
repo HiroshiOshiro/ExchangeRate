@@ -9,14 +9,6 @@
 import UIKit
 
 class TopRouter: TopWireframe {
-    func showCurrencyListScreen(currencyCode: String, isFromButton: Bool) {
-        if let nextVC = CurrencyListRouter.assembleModule() as? CurrencyListViewController {
-            nextVC.selectedCurrencyCode = currencyCode
-            nextVC.isFromButton = isFromButton
-            self.viewController?.present(nextVC, animated: true, completion: nil)
-        }
-    }
-    
     weak var viewController: UIViewController?
     
     private init(viewController: UIViewController) {
@@ -44,5 +36,13 @@ class TopRouter: TopWireframe {
         router.viewController = view
 
         return view
+    }
+    
+    func showCurrencyListScreen(currencyCode: String, isFromButton: Bool) {
+        if let nextVC = CurrencyListRouter.assembleModule() as? CurrencyListViewController {
+            nextVC.selectedCurrencyCode = currencyCode
+            nextVC.isFromButton = isFromButton
+            self.viewController?.present(nextVC, animated: true, completion: nil)
+        }
     }
 }

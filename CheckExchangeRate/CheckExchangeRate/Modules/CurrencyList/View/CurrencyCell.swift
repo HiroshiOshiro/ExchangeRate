@@ -8,7 +8,7 @@
 
 import UIKit
 
-
+// TODO: Delete
 class CurrencyCell: UITableViewCell {
     
 }
