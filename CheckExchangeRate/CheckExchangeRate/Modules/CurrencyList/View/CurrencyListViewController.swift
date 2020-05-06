@@ -17,7 +17,7 @@ class CurrencyListViewController: UIViewController {
     
     var isFromButton: Bool?
     var currencies: [Currency]?
-    var selectedCurrency: Currency?
+    var selectedCurrencyCode: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,11 @@ class CurrencyListViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        presenter.viewWillDisappear()
+        super.viewWillDisappear(animated)
+        
+        // call viewWillAppear in parent screen
+        presentingViewController?.beginAppearanceTransition(true, animated: animated)
+        presentingViewController?.endAppearanceTransition()
     }
     
 }
@@ -51,23 +55,28 @@ extension CurrencyListViewController: UITableViewDataSource, UITableViewDelegate
             return UITableViewCell()
         }
         
-        
         cell.textLabel?.text = currencies?[indexPath.row].code
         cell.detailTextLabel?.text = currencies?[indexPath.row].fullname
-//        if currencies?[indexPath.row].code == self.selectedCurrency?.code ?? "" {
-        if currencies?[indexPath.row].code == "GEL" {
+        if currencies?[indexPath.row].code == self.selectedCurrencyCode ?? "" {
             cell.accessoryType = .checkmark
+//            cell.isSelected = true
+            cell.setSelected(true, animated: true)
+        } else {
+            cell.accessoryType = .none
         }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
             if let selectedItem = currencies?[indexPath.row] {
-                self.selectedCurrency = selectedItem
+                self.selectedCurrencyCode = selectedItem.code
+                self.presenter.didSelectCurrency(currency: selectedItem, isFromCurrency: self.isFromButton ?? true)
             }
+            
             cell.accessoryType = .checkmark
-            cell.isSelected = false
+//            cell.isSelected = false
         }
         
     }
@@ -75,7 +84,7 @@ extension CurrencyListViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
             cell.accessoryType = .none
-            cell.isSelected = false
+//            cell.isSelected = false
         }
     }
 }

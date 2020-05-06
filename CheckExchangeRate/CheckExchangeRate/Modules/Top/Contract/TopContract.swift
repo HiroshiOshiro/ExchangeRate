@@ -23,9 +23,9 @@ protocol TopPresentation: class {
     var router: TopWireframe! { get set }
     
     func viewDidLoad()
-//    func setInitialValue()
+    func viewWillAppear(fromAmout: Int?)
     func didTapExcengeButton()
-    func didTapCurrencyButton(isFromButton: Bool)
+    func didTapCurrencyButton(currencyCode: String, isFromButton: Bool)
     func didChangeFromTextField(value: Int)
 }
 
@@ -50,5 +50,5 @@ protocol TopInteractorOutput: class {
 protocol TopWireframe: class {
     var viewController: UIViewController? { get set }
     static func assembleModule() -> UIViewController
-    func showCurrencyListScreen(isFromButton: Bool)
+    func showCurrencyListScreen(currencyCode: String, isFromButton: Bool)
 }

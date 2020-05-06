@@ -22,11 +22,12 @@ class CurrencyListPresenter: CurrencyListPresentation {
         
     }
     
-    func didSelectCurrency(currency: Currency) {
-        
+    func didSelectCurrency(currency: Currency, isFromCurrency: Bool) {
+        interactor.saveSelectedItem(currency: currency, isFromCurrency: isFromCurrency)
     }
     
     func viewWillDisappear() {
+//        interactor.saveSelectedItem(currency: Currency, isFromCurrency: true)
     }
 }
 

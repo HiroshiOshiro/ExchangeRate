@@ -37,6 +37,15 @@ class TopPresenter: TopPresentation {
         fetchRateDataFromAPI()
     }
     
+    func viewWillAppear(fromAmout: Int?) {
+        interactor.getUserPreferenceData()
+        
+        // do calucutation when value is existeing (when return from CurrencyList screen)
+        if let amount = fromAmout {
+            interactor.calcurate(fromAmount: amount)
+        }
+    }
+    
 //    func setInitialValue() {
 //        view?.setIinitailValue()
 //    }
@@ -47,8 +56,8 @@ class TopPresenter: TopPresentation {
         interactor.exchangeCurrency()
     }
     
-    func didTapCurrencyButton(isFromButton: Bool) {
-        router.showCurrencyListScreen(isFromButton: isFromButton)
+    func didTapCurrencyButton(currencyCode: String, isFromButton: Bool) {
+        router.showCurrencyListScreen(currencyCode: currencyCode, isFromButton: isFromButton)
     }
     
     func didChangeFromTextField(value: Int) {

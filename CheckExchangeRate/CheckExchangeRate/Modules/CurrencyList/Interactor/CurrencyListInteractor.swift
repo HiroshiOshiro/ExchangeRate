@@ -15,9 +15,7 @@ class CurrencyListInteractor {
 
 extension CurrencyListInteractor: CurrencyListUseCase {
     func getCurrencyListFromDB(keyward: String) {
-        
         let realm = try! Realm()
-    
         var list: [Currency] = []
         if keyward.isEmpty {
             list = Array(realm.objects(Currency.self).sorted(byKeyPath: "code"))
@@ -32,8 +30,23 @@ extension CurrencyListInteractor: CurrencyListUseCase {
         
     }
     
-    
-   
+    func saveSelectedItem(currency: Currency, isFromCurrency: Bool) {
+        let realm = try! Realm()
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        if let userPreferenceData = realm.objects(UserPreferenceData.self).first {
+            do {
+                try realm.write {
+                    if isFromCurrency {
+                        userPreferenceData.fromCurrency = currency.code
+                    } else {
+                        userPreferenceData.toCurrency = currency.code
+                    }
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
 
 

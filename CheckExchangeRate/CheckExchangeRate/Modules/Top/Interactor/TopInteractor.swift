@@ -164,7 +164,7 @@ extension TopInteractor: TopUseCase {
         let realm = try! Realm()
         guard let userPreference = realm.objects(UserPreferenceData.self).first,
             let source = realm.objects(ExchangeRateData.self).first?.source else {
-            // error:
+            // error: Required paramenters are missing
             return
         }
         
@@ -178,8 +178,6 @@ extension TopInteractor: TopUseCase {
             let rateToValue = rateTo.first?.rate {
             
             let result = Double(fromAmount) / rateFromValue * rateToValue
-//            print(result)
-//            self.output?.gotCaluculateResult(value: (Double(fromAmount) / rateFromValue * rateFromValue))
             self.output?.gotCaluculateResult(value: result)
         } else {
             

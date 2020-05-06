@@ -22,13 +22,14 @@ protocol CurrencyListPresentation: class {
 //    func setInitialValue()
     
     func didChangeSearchKeyward(keyward: String)
-    func didSelectCurrency(currency: Currency)
+    func didSelectCurrency(currency: Currency, isFromCurrency: Bool)
     
 }
 
 protocol CurrencyListUseCase: class {
     func searchCurrencyWithKeyward(keyword: String)
     func getCurrencyListFromDB(keyward: String)
+    func saveSelectedItem(currency: Currency, isFromCurrency: Bool)
     
 }
 

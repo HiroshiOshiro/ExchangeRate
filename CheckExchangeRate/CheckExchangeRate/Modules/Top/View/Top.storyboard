@@ -51,7 +51,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="fromCurrencyButtonTapped:" destination="3Ud-Ro-ssX" eventType="touchUpInside" id="tt4-3O-QFz"/>
+                                    <action selector="fromCurrencyButtonTapped:" destination="3Ud-Ro-ssX" eventType="touchUpInside" id="mQm-p7-nLf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VKO-xd-wuD">
@@ -61,7 +61,7 @@
                                 </constraints>
                                 <state key="normal" title="↑↓Exchenge"/>
                                 <connections>
-                                    <action selector="exchangeButtonTapped:" destination="3Ud-Ro-ssX" eventType="touchUpInside" id="xFR-SJ-mL7"/>
+                                    <action selector="exchangeButtonTapped:" destination="3Ud-Ro-ssX" eventType="touchUpInside" id="VHD-2o-stG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaG-nr-WtQ">
@@ -83,7 +83,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="toCurrencyButtonTapped:" destination="3Ud-Ro-ssX" eventType="touchUpInside" id="4Ax-uT-aTD"/>
+                                    <action selector="toCurrencyButtonTapped:" destination="3Ud-Ro-ssX" eventType="touchUpInside" id="55s-af-MsR"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xVe-Ph-jrf">

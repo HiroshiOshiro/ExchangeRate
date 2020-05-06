@@ -34,6 +34,12 @@ class TopViewController: UIViewController {
         presenter.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        presenter.viewWillAppear(fromAmout: Int(fromCurrencyTextField.text ?? ""))
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -42,15 +48,15 @@ class TopViewController: UIViewController {
         presenter.didChangeFromTextField(value: Int(fromCurrencyTextField.text ?? "") ?? 0)
     }
     
-    @IBAction func fromCurrencyButtonTapped(_ sender: Any) {
-        presenter.didTapCurrencyButton(isFromButton: true)
+    @IBAction func fromCurrencyButtonTapped(_ sender: UIButton) {
+        presenter.didTapCurrencyButton(currencyCode: sender.titleLabel?.text ?? "", isFromButton: true)
     }
     
-    @IBAction func toCurrencyButtonTapped(_ sender: Any) {
-        presenter.didTapCurrencyButton(isFromButton: false)
+    @IBAction func toCurrencyButtonTapped(_ sender: UIButton) {
+        presenter.didTapCurrencyButton(currencyCode: sender.titleLabel?.text ?? "", isFromButton: false)
     }
     
-    @IBAction func exchangeButtonTapped(_ sender: Any) {
+    @IBAction func exchangeButtonTapped(_ sender: UIButton) {
         setIinitailValue()
         presenter.didTapExcengeButton()
     }

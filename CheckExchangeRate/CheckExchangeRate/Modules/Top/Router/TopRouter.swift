@@ -9,8 +9,9 @@
 import UIKit
 
 class TopRouter: TopWireframe {
-    func showCurrencyListScreen(isFromButton: Bool) {
+    func showCurrencyListScreen(currencyCode: String, isFromButton: Bool) {
         if let nextVC = CurrencyListRouter.assembleModule() as? CurrencyListViewController {
+            nextVC.selectedCurrencyCode = currencyCode
             nextVC.isFromButton = isFromButton
             self.viewController?.present(nextVC, animated: true, completion: nil)
         }
