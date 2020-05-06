@@ -15,11 +15,11 @@ class CurrencyListPresenter: CurrencyListPresentation {
     var router: CurrencyListWireframe!
         
     func viewDidLoad() {
-        interactor.getCurrencyListFromDB(keyward: "")
+        interactor.getCurrencyListFromDB(searchWord: "")
     }
     
-    func didChangeSearchKeyward(keyward: String) {
-        
+    func didChangeSearchWord(searchWord: String) {
+        interactor.getCurrencyListFromDB(searchWord: searchWord)
     }
     
     func didSelectCurrency(currency: Currency, isFromCurrency: Bool) {

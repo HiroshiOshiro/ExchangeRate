@@ -19,24 +19,18 @@ protocol CurrencyListPresentation: class {
     
     func viewDidLoad()
     func viewWillDisappear()
-//    func setInitialValue()
     
-    func didChangeSearchKeyward(keyward: String)
+    func didChangeSearchWord(searchWord: String)
     func didSelectCurrency(currency: Currency, isFromCurrency: Bool)
-    
 }
 
 protocol CurrencyListUseCase: class {
-    func searchCurrencyWithKeyward(keyword: String)
-    func getCurrencyListFromDB(keyward: String)
+    func getCurrencyListFromDB(searchWord: String)
     func saveSelectedItem(currency: Currency, isFromCurrency: Bool)
-    
 }
 
 protocol CurrencyListInteractorOutput: class {
-//    func searchedCurrency(currencies: [Currency])
     func gotCurrencyListFromDB(currencies: [Currency])
-    
 }
 
 protocol CurrencyListWireframe: class {

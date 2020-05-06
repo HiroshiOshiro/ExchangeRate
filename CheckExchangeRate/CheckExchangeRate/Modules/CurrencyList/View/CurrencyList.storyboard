@@ -73,6 +73,7 @@
                     </view>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
+                        <outlet property="currencySearchBar" destination="Lbw-4L-Fg0" id="GPB-xj-TIV"/>
                         <outlet property="currencyTableView" destination="I0i-Zf-s0a" id="fZh-s2-uIQ"/>
                     </connections>
                 </viewController>

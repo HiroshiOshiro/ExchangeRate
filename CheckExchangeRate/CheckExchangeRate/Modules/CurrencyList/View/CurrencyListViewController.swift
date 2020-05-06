@@ -12,6 +12,7 @@ import PKHUD
 class CurrencyListViewController: UIViewController {
     
     @IBOutlet weak var currencyTableView: UITableView!
+    @IBOutlet weak var currencySearchBar: UISearchBar!
     
     var presenter: CurrencyListPresentation!
     
@@ -29,6 +30,7 @@ class CurrencyListViewController: UIViewController {
     private func setupScreen() {
         currencyTableView.delegate = self
         currencyTableView.dataSource = self
+        currencySearchBar.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -38,7 +40,6 @@ class CurrencyListViewController: UIViewController {
         presentingViewController?.beginAppearanceTransition(true, animated: animated)
         presentingViewController?.endAppearanceTransition()
     }
-    
 }
 
 extension CurrencyListViewController: UITableViewDataSource, UITableViewDelegate {
@@ -95,12 +96,12 @@ extension CurrencyListViewController: UIScrollViewDelegate {
 
 extension CurrencyListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        presenter.didChangeSearchKeyward(keyward: searchText)
+        presenter.didChangeSearchWord(searchWord: searchText)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         view.endEditing(true)
-        presenter.didChangeSearchKeyward(keyward: searchBar.text ?? "")
+        presenter.didChangeSearchWord(searchWord: searchBar.text ?? "")
     }
 }
 
