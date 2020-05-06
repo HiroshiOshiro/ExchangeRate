@@ -59,8 +59,7 @@ extension CurrencyListViewController: UITableViewDataSource, UITableViewDelegate
         cell.detailTextLabel?.text = currencies?[indexPath.row].fullname
         if currencies?[indexPath.row].code == self.selectedCurrencyCode ?? "" {
             cell.accessoryType = .checkmark
-//            cell.isSelected = true
-            cell.setSelected(true, animated: true)
+            tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
         } else {
             cell.accessoryType = .none
         }
@@ -68,15 +67,15 @@ extension CurrencyListViewController: UITableViewDataSource, UITableViewDelegate
         return cell
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
+            
             if let selectedItem = currencies?[indexPath.row] {
                 self.selectedCurrencyCode = selectedItem.code
                 self.presenter.didSelectCurrency(currency: selectedItem, isFromCurrency: self.isFromButton ?? true)
             }
-            
             cell.accessoryType = .checkmark
-//            cell.isSelected = false
         }
         
     }
@@ -84,7 +83,6 @@ extension CurrencyListViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
             cell.accessoryType = .none
-//            cell.isSelected = false
         }
     }
 }
