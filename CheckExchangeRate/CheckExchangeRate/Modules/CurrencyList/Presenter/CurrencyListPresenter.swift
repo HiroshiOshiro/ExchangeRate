@@ -15,7 +15,7 @@ class CurrencyListPresenter: CurrencyListPresentation {
     var router: CurrencyListWireframe!
         
     func viewDidLoad() {
-        
+        interactor.getCurrencyListFromDB(keyward: "")
     }
     
     func didChangeSearchKeyward(keyward: String) {
@@ -25,12 +25,20 @@ class CurrencyListPresenter: CurrencyListPresentation {
     func didSelectCurrency(currency: Currency) {
         
     }
+    
+    func viewWillDisappear() {
+    }
 }
 
 extension CurrencyListPresenter: CurrencyListInteractorOutput {
-    func searchedCurrency(currencies: [Currency]) {
-        
+    func gotCurrencyListFromDB(currencies: [Currency]) {
+        self.view?.showCurrencyList(currencies: currencies)
     }
+    
+//    func searchedCurrency(currencies: [Currency]) {
+//
+//        self.view?.showCurrencyList(currencies: currencies)
+//    }
     
 
 }

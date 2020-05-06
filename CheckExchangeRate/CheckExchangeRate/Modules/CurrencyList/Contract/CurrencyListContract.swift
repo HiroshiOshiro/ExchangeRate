@@ -18,6 +18,7 @@ protocol CurrencyListPresentation: class {
     var router: CurrencyListWireframe! { get set }
     
     func viewDidLoad()
+    func viewWillDisappear()
 //    func setInitialValue()
     
     func didChangeSearchKeyward(keyward: String)
@@ -27,11 +28,14 @@ protocol CurrencyListPresentation: class {
 
 protocol CurrencyListUseCase: class {
     func searchCurrencyWithKeyward(keyword: String)
+    func getCurrencyListFromDB(keyward: String)
     
 }
 
 protocol CurrencyListInteractorOutput: class {
-    func searchedCurrency(currencies: [Currency])
+//    func searchedCurrency(currencies: [Currency])
+    func gotCurrencyListFromDB(currencies: [Currency])
+    
 }
 
 protocol CurrencyListWireframe: class {

@@ -14,6 +14,20 @@ class CurrencyListInteractor {
 }
 
 extension CurrencyListInteractor: CurrencyListUseCase {
+    func getCurrencyListFromDB(keyward: String) {
+        
+        let realm = try! Realm()
+    
+        var list: [Currency] = []
+        if keyward.isEmpty {
+            list = Array(realm.objects(Currency.self).sorted(byKeyPath: "code"))
+        } else {
+            list = Array(realm.objects(Currency.self).filter("code CONTAINS %@ OR fullname CONTAINS %@", keyward, keyward).sorted(byKeyPath: "code"))
+        }
+        
+        output?.gotCurrencyListFromDB(currencies: Array(list))
+    }
+    
     func searchCurrencyWithKeyward(keyword: String) {
         
     }

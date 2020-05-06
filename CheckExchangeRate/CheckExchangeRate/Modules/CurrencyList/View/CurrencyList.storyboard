@@ -18,20 +18,18 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z9t-UJ-Uq9">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <items>
-                                    <navigationItem title="Seelct Currency" id="kgW-tM-Zt2">
-                                        <barButtonItem key="backBarButtonItem" title="Close" style="plain" id="JTU-bw-8sP"/>
-                                    </navigationItem>
+                                    <navigationItem title="Select Currency" id="kgW-tM-Zt2"/>
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I0i-Zf-s0a">
                                 <rect key="frame" x="0.0" y="100" width="414" height="796"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" textLabel="dPF-lI-QdK" detailTextLabel="8Vl-IA-fYe" style="IBUITableViewCellStyleSubtitle" id="xvY-sT-phG">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyCell" textLabel="dPF-lI-QdK" detailTextLabel="8Vl-IA-fYe" style="IBUITableViewCellStyleSubtitle" id="xvY-sT-phG" customClass="CurrencyCell" customModule="CheckRate" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xvY-sT-phG" id="eGS-nR-EBA">
-                                            <rect key="frame" x="0.0" y="0.0" width="370" height="55.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dPF-lI-QdK">
@@ -74,6 +72,9 @@
                         <viewLayoutGuide key="safeArea" id="4GV-Hq-Urr"/>
                     </view>
                     <size key="freeformSize" width="414" height="896"/>
+                    <connections>
+                        <outlet property="currencyTableView" destination="I0i-Zf-s0a" id="fZh-s2-uIQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GEa-vk-Fpn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

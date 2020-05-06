@@ -38,6 +38,7 @@
 		689FBD532461A01A00E69197 /* CurrencyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FBD4B2461A01A00E69197 /* CurrencyListViewController.swift */; };
 		689FBD542461A01A00E69197 /* CurrencyListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FBD4D2461A01A00E69197 /* CurrencyListInteractor.swift */; };
 		689FBD552461A01A00E69197 /* CurrencyListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FBD4F2461A01A00E69197 /* CurrencyListRouter.swift */; };
+		689FBD572461C44000E69197 /* CurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FBD562461C44000E69197 /* CurrencyCell.swift */; };
 		AA20A050E29AF97A4402FA91 /* Pods_CheckExchangeRateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D93949EF4C1DE17F7C433DB0 /* Pods_CheckExchangeRateTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +100,7 @@
 		689FBD4B2461A01A00E69197 /* CurrencyListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyListViewController.swift; sourceTree = "<group>"; };
 		689FBD4D2461A01A00E69197 /* CurrencyListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyListInteractor.swift; sourceTree = "<group>"; };
 		689FBD4F2461A01A00E69197 /* CurrencyListRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyListRouter.swift; sourceTree = "<group>"; };
+		689FBD562461C44000E69197 /* CurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCell.swift; sourceTree = "<group>"; };
 		9A0F362A630C7EF971D1ABC9 /* Pods_CheckExchangeRate_CheckExchangeRateUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckExchangeRate_CheckExchangeRateUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D93949EF4C1DE17F7C433DB0 /* Pods_CheckExchangeRateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckExchangeRateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E422F8E96E4D94A60A2F4060 /* Pods_CheckExchangeRate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckExchangeRate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -364,6 +366,7 @@
 			children = (
 				689FBD4A2461A01A00E69197 /* CurrencyList.storyboard */,
 				689FBD4B2461A01A00E69197 /* CurrencyListViewController.swift */,
+				689FBD562461C44000E69197 /* CurrencyCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -667,6 +670,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				689FBD572461C44000E69197 /* CurrencyCell.swift in Sources */,
 				686D45A9245D42730017B05F /* TopInteractor.swift in Sources */,
 				689FBD532461A01A00E69197 /* CurrencyListViewController.swift in Sources */,
 				686D45A7245D42290017B05F /* TopViewController.swift in Sources */,
