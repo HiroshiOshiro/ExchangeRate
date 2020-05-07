@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		23C2BB8271A207213F903339 /* Pods_CheckExchangeRate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E422F8E96E4D94A60A2F4060 /* Pods_CheckExchangeRate.framework */; };
 		2D7C832652695D78F21E4CA3 /* Pods_CheckExchangeRate_CheckExchangeRateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A0F362A630C7EF971D1ABC9 /* Pods_CheckExchangeRate_CheckExchangeRateUITests.framework */; };
+		680D21DE2463CF0400931845 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 680D21DD2463CF0400931845 /* Localizable.strings */; };
 		6835CB15245F179600EE9347 /* RateListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6835CB14245F179600EE9347 /* RateListResponse.swift */; };
 		6845F017245B110B004F35FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6845F016245B110B004F35FE /* AppDelegate.swift */; };
 		6845F019245B110B004F35FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6845F018245B110B004F35FE /* SceneDelegate.swift */; };
@@ -65,6 +66,7 @@
 		3E74497B824B2C7AC3A86EEF /* Pods-CheckExchangeRateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckExchangeRateTests.release.xcconfig"; path = "Target Support Files/Pods-CheckExchangeRateTests/Pods-CheckExchangeRateTests.release.xcconfig"; sourceTree = "<group>"; };
 		568AD3B7C60711E5EF83350A /* Pods-CheckExchangeRate-CheckExchangeRateUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckExchangeRate-CheckExchangeRateUITests.release.xcconfig"; path = "Target Support Files/Pods-CheckExchangeRate-CheckExchangeRateUITests/Pods-CheckExchangeRate-CheckExchangeRateUITests.release.xcconfig"; sourceTree = "<group>"; };
 		608B1D7DB426A9DC44A4EC8F /* Pods-CheckExchangeRate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckExchangeRate.release.xcconfig"; path = "Target Support Files/Pods-CheckExchangeRate/Pods-CheckExchangeRate.release.xcconfig"; sourceTree = "<group>"; };
+		680D21DD2463CF0400931845 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		6835CB14245F179600EE9347 /* RateListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateListResponse.swift; sourceTree = "<group>"; };
 		6845F013245B110B004F35FE /* ExcehangeRate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExcehangeRate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6845F016245B110B004F35FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				6845F01F245B110D004F35FE /* Assets.xcassets */,
 				6845F021245B110D004F35FE /* LaunchScreen.storyboard */,
 				686D45B1245D47260017B05F /* R.generated.swift */,
+				680D21DD2463CF0400931845 /* Localizable.strings */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				680D21DE2463CF0400931845 /* Localizable.strings in Resources */,
 				6845F023245B110D004F35FE /* LaunchScreen.storyboard in Resources */,
 				689FBD522461A01A00E69197 /* CurrencyList.storyboard in Resources */,
 				6845F020245B110D004F35FE /* Assets.xcassets in Resources */,

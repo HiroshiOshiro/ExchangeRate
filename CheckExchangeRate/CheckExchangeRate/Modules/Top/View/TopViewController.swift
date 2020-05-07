@@ -57,7 +57,7 @@ class TopViewController: UIViewController {
 
 extension TopViewController: TopView {
     func showIndicator() {
-        PKHUD.sharedHUD.contentView = PKHUDProgressView(title: "Fetching Data...", subtitle: nil)
+        PKHUD.sharedHUD.contentView = PKHUDProgressView(title: R.string.localizable.lodingText(), subtitle: nil)
         PKHUD.sharedHUD.show(onView: self.view)
     }
     
