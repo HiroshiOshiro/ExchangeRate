@@ -67,20 +67,20 @@ extension TopInteractor: TopUseCase {
             guard let data = data else {
                 return
             }
-            
-            let currencyListResponse = try! JSONDecoder().decode(CurrencyListResponse.self, from: data)
-            let currencyData = self.saveCurrencyData(apiRespose: currencyListResponse)
+            let currencyData = self.saveCurrencyData(with: data)
             self.output?.gotCurrencyList(data: Array(currencyData.currencies))
             
         })
         task.resume()
     }
     
-    private func saveCurrencyData(apiRespose: CurrencyListResponse) -> CurrencyData {
+    private func saveCurrencyData(with data: Data) -> CurrencyData {
         let currencyData = CurrencyData()
         
+        let currencyListResponse = try! JSONDecoder().decode(CurrencyListResponse.self, from: data)
+        
         let currencies = List<Currency>()
-        for currencyDic in apiRespose.currencies {
+        for currencyDic in currencyListResponse.currencies {
             let currency = Currency()
             currency.code = currencyDic.key
             currency.fullname = currencyDic.value
@@ -114,19 +114,19 @@ extension TopInteractor: TopUseCase {
             guard let data = data else {
                 return
             }
-            
-            let response = try! JSONDecoder().decode(RateListResponse.self, from: data)
-            let exchangeRateData = self.saveRateData(apiRespose:  response)
+            let exchangeRateData = self.saveRateData(with: data)
             self.output?.gotRateList(data: Array(exchangeRateData.quotes))
         })
         task.resume()
     }
     
-    private func saveRateData(apiRespose: RateListResponse) -> ExchangeRateData {
+    private func saveRateData(with data: Data) -> ExchangeRateData {
         let exchangeRateData = ExchangeRateData()
         
+        let rateListResponse = try! JSONDecoder().decode(RateListResponse.self, from: data)
+        
         let rateList = List<Rate>()
-        for rateDic in apiRespose.quotes {
+        for rateDic in rateListResponse.quotes {
             let rate = Rate()
             rate.code = rateDic.key
             rate.rate = rateDic.value
@@ -134,8 +134,8 @@ extension TopInteractor: TopUseCase {
         }
         
         let exchangeRate = ExchangeRateData()
-        exchangeRate.timestamp = apiRespose.timestamp
-        exchangeRate.source = apiRespose.source
+        exchangeRate.timestamp = rateListResponse.timestamp
+        exchangeRate.source = rateListResponse.source
         exchangeRate.quotes = rateList
         
         let realm = try! Realm()
