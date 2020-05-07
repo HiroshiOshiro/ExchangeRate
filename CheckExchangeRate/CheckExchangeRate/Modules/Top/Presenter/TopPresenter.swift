@@ -16,6 +16,7 @@ class TopPresenter: TopPresentation {
     var router: TopWireframe!
         
     func viewDidLoad() {
+        interactor.setDefaultUserPreferenceData()
         interactor.getUserPreferenceData()
         
         // Get data from APIs
