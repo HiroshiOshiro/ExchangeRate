@@ -12,12 +12,12 @@
 		680D21D62462EED600931845 /* TopScreeenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680D21D52462EED600931845 /* TopScreeenUITests.swift */; };
 		680D21DA2462FDBF00931845 /* TestTopInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680D21D72462F37D00931845 /* TestTopInteractor.swift */; };
 		680D21DE2463CF0400931845 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 680D21DD2463CF0400931845 /* Localizable.strings */; };
+		680D21E22464120900931845 /* TestCurrencyListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680D21E12464120900931845 /* TestCurrencyListInteractor.swift */; };
 		6835CB15245F179600EE9347 /* RateListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6835CB14245F179600EE9347 /* RateListResponse.swift */; };
 		6845F017245B110B004F35FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6845F016245B110B004F35FE /* AppDelegate.swift */; };
 		6845F019245B110B004F35FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6845F018245B110B004F35FE /* SceneDelegate.swift */; };
 		6845F020245B110D004F35FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6845F01F245B110D004F35FE /* Assets.xcassets */; };
 		6845F023245B110D004F35FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6845F021245B110D004F35FE /* LaunchScreen.storyboard */; };
-		6845F02E245B110D004F35FE /* CheckExchangeRateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6845F02D245B110D004F35FE /* CheckExchangeRateTests.swift */; };
 		6845F039245B110D004F35FE /* CheckExchangeRateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6845F038245B110D004F35FE /* CheckExchangeRateUITests.swift */; };
 		686D4599245D2DEB0017B05F /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D4586245D2DEB0017B05F /* RootWireframe.swift */; };
 		686D459A245D2DEB0017B05F /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D4587245D2DEB0017B05F /* RootRouter.swift */; };
@@ -71,6 +71,7 @@
 		680D21D52462EED600931845 /* TopScreeenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScreeenUITests.swift; sourceTree = "<group>"; };
 		680D21D72462F37D00931845 /* TestTopInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTopInteractor.swift; sourceTree = "<group>"; };
 		680D21DD2463CF0400931845 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		680D21E12464120900931845 /* TestCurrencyListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCurrencyListInteractor.swift; sourceTree = "<group>"; };
 		6835CB14245F179600EE9347 /* RateListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateListResponse.swift; sourceTree = "<group>"; };
 		6845F013245B110B004F35FE /* ExcehangeRate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExcehangeRate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6845F016245B110B004F35FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,7 +80,6 @@
 		6845F022245B110D004F35FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6845F024245B110D004F35FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6845F029245B110D004F35FE /* CheckExchangeRateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CheckExchangeRateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6845F02D245B110D004F35FE /* CheckExchangeRateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckExchangeRateTests.swift; sourceTree = "<group>"; };
 		6845F02F245B110D004F35FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6845F034245B110D004F35FE /* CheckExchangeRateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CheckExchangeRateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6845F038245B110D004F35FE /* CheckExchangeRateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckExchangeRateUITests.swift; sourceTree = "<group>"; };
@@ -179,8 +179,8 @@
 		6845F02C245B110D004F35FE /* CheckExchangeRateTests */ = {
 			isa = PBXGroup;
 			children = (
-				6845F02D245B110D004F35FE /* CheckExchangeRateTests.swift */,
 				680D21D72462F37D00931845 /* TestTopInteractor.swift */,
+				680D21E12464120900931845 /* TestCurrencyListInteractor.swift */,
 				6845F02F245B110D004F35FE /* Info.plist */,
 			);
 			path = CheckExchangeRateTests;
@@ -703,8 +703,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				680D21E22464120900931845 /* TestCurrencyListInteractor.swift in Sources */,
 				680D21DA2462FDBF00931845 /* TestTopInteractor.swift in Sources */,
-				6845F02E245B110D004F35FE /* CheckExchangeRateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,11 +27,7 @@ class TestTopInteractor: XCTestCase {
     }
 
     // Test methods in TopInteractor for saving function
-    func testTopInteractorSavingMethods() {
-        XCTContext.runActivity(named: "Test: Interctor.Calcuration") {_ in
-            interctor.calcurate(fromAmount: 1)
-        }
-        
+    func testTopInteractorSavingMethods() {        
         XCTContext.runActivity(named: "Check initializing UserPreferenceData") {_ in
             interctor.setDefaultUserPreferenceData()
         

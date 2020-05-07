@@ -28,7 +28,6 @@ extension CurrencyListInteractor: CurrencyListUseCase {
     
     func saveSelectedItem(currency: Currency, isFromCurrency: Bool) {
         let realm = try! Realm()
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
         if let userPreferenceData = realm.objects(UserPreferenceData.self).first {
             do {
                 try realm.write {
