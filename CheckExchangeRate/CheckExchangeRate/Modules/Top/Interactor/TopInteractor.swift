@@ -22,41 +22,42 @@ extension TopInteractor: TopUseCase {
         userPreference.fromCurrency = Define.defaultFromCurrency
         userPreference.toCurrency = Define.defaultToCurrency
         try! realm.write {
+            realm.delete(realm.objects(UserPreferenceData.self))
             realm.add(userPreference)
         }
     }
     
     func setUserPreferenceData(fromCurrency: String?, toCUrrency: String?) {
         let realm = try! Realm()
-        let userPreference = realm.objects(UserPreferenceData.self)
+        let userPreference = realm.objects(UserPreferenceData.self).first
         try! realm.write {
             if let fromCurrency = fromCurrency {
-                userPreference[0].fromCurrency = fromCurrency
+                userPreference?.fromCurrency = fromCurrency
             }
             if let toCUrrency = toCUrrency {
-                userPreference[0].toCurrency = toCUrrency
+                userPreference?.toCurrency = toCUrrency
             }
         }
     }
     
     func getUserPreferenceData() {
         let realm = try! Realm()
-        let userPreference = realm.objects(UserPreferenceData.self)
+        let userPreference = realm.objects(UserPreferenceData.self).first
         
-        if userPreference.isEmpty {
-            setDefaultUserPreferenceData()
+        if let userPreference = userPreference {
+            self.output?.gotUserPreferenceData(userPreference: userPreference)
         }
-        
-        self.output?.gotUserPreferenceData(userPreference: userPreference[0])
     }
     
     func fetchCurrencyListData() {
         let realm = try! Realm()
-        let currencyData = realm.objects(CurrencyData.self)
-        if !currencyData.isEmpty && Date().timeIntervalSince(currencyData[0].savedAt) < 60 * 30 {
-            // return existing data from DB
-            self.output?.gotCurrencyList(data: Array(currencyData[0].currencies))
-            return
+        if let currencyData = realm.objects(CurrencyData.self).first,
+            let savedAt = currencyData.savedAt {
+            if Date().timeIntervalSince(savedAt) < 60 * 30 {
+                // return existing data from DB
+                self.output?.gotCurrencyList(data: Array(currencyData.currencies))
+                return
+            }
         }
         
         guard let url = URL(string: Define.getCurrencyListAPIPath) else {
@@ -87,6 +88,7 @@ extension TopInteractor: TopUseCase {
             currencies.append(currency)
         }
         currencyData.currencies = currencies
+        currencyData.savedAt = Date()
         
         let realm = try! Realm()
         try! realm.write {
@@ -99,11 +101,13 @@ extension TopInteractor: TopUseCase {
     
     func fetchRateData() {
         let realm = try! Realm()
-        let exchangeRateData = realm.objects(ExchangeRateData.self)
-        if !exchangeRateData.isEmpty && Date().timeIntervalSince(exchangeRateData[0].savedAt) < 60 * 30 {
-            // return existing data from DB
-            self.output?.gotRateList(data: Array(exchangeRateData[0].quotes))
-            return
+        if let exchangeRateData = realm.objects(ExchangeRateData.self).first,
+            let savedAt = exchangeRateData.savedAt {
+            if Date().timeIntervalSince(savedAt) < 60 * 30 {
+                // return existing data from DB
+                self.output?.gotRateList(data: Array(exchangeRateData.quotes))
+                return
+            }
         }
         
         guard let url = URL(string: Define.getRateAPIPath) else {
@@ -137,6 +141,7 @@ extension TopInteractor: TopUseCase {
         exchangeRate.timestamp = rateListResponse.timestamp
         exchangeRate.source = rateListResponse.source
         exchangeRate.quotes = rateList
+        exchangeRate.savedAt = Date()
         
         let realm = try! Realm()
         try! realm.write {
@@ -150,10 +155,12 @@ extension TopInteractor: TopUseCase {
     
     func exchangeCurrency() {
         let realm = try! Realm()
-        let userPreference = realm.objects(UserPreferenceData.self)
+        let userPreference = realm.objects(UserPreferenceData.self).first
         
-        setUserPreferenceData(fromCurrency: userPreference[0].toCurrency, toCUrrency: userPreference[0].fromCurrency)
-        getUserPreferenceData()
+        if let userPreference = userPreference {
+            setUserPreferenceData(fromCurrency: userPreference.toCurrency, toCUrrency: userPreference.fromCurrency)
+            getUserPreferenceData()
+        }
     }
     
     func calcurate(fromAmount: Int) {
