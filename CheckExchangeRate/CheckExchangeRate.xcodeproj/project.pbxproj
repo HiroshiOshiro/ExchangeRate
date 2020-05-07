@@ -42,7 +42,6 @@
 		689FBD532461A01A00E69197 /* CurrencyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FBD4B2461A01A00E69197 /* CurrencyListViewController.swift */; };
 		689FBD542461A01A00E69197 /* CurrencyListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FBD4D2461A01A00E69197 /* CurrencyListInteractor.swift */; };
 		689FBD552461A01A00E69197 /* CurrencyListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FBD4F2461A01A00E69197 /* CurrencyListRouter.swift */; };
-		689FBD572461C44000E69197 /* CurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FBD562461C44000E69197 /* CurrencyCell.swift */; };
 		AA20A050E29AF97A4402FA91 /* Pods_CheckExchangeRateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D93949EF4C1DE17F7C433DB0 /* Pods_CheckExchangeRateTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,8 +76,8 @@
 		680D21E5246427EE00931845 /* CurrencyListScreenUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListScreenUITest.swift; sourceTree = "<group>"; };
 		6835CB14245F179600EE9347 /* RateListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateListResponse.swift; sourceTree = "<group>"; };
 		6845F013245B110B004F35FE /* ExcehangeRate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExcehangeRate.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6845F016245B110B004F35FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
-		6845F018245B110B004F35FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../SceneDelegate.swift; sourceTree = "<group>"; };
+		6845F016245B110B004F35FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6845F018245B110B004F35FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		6845F01F245B110D004F35FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6845F022245B110D004F35FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6845F024245B110D004F35FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,7 +107,6 @@
 		689FBD4B2461A01A00E69197 /* CurrencyListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyListViewController.swift; sourceTree = "<group>"; };
 		689FBD4D2461A01A00E69197 /* CurrencyListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyListInteractor.swift; sourceTree = "<group>"; };
 		689FBD4F2461A01A00E69197 /* CurrencyListRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyListRouter.swift; sourceTree = "<group>"; };
-		689FBD562461C44000E69197 /* CurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCell.swift; sourceTree = "<group>"; };
 		9A0F362A630C7EF971D1ABC9 /* Pods_CheckExchangeRate_CheckExchangeRateUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckExchangeRate_CheckExchangeRateUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D93949EF4C1DE17F7C433DB0 /* Pods_CheckExchangeRateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckExchangeRateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E422F8E96E4D94A60A2F4060 /* Pods_CheckExchangeRate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckExchangeRate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +141,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		680D21E8246438B200931845 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				6845F016245B110B004F35FE /* AppDelegate.swift */,
+				6845F018245B110B004F35FE /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		6845F00A245B110B004F35FE = {
 			isa = PBXGroup;
 			children = (
@@ -169,7 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				6845F024245B110D004F35FE /* Info.plist */,
-				686D45A1245D2E860017B05F /* Application */,
+				680D21E8246438B200931845 /* Application */,
 				686D4588245D2DEB0017B05F /* Resource */,
 				686D4590245D2DEB0017B05F /* Models */,
 				686D4578245D2DEB0017B05F /* Modules */,
@@ -311,15 +318,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		686D45A1245D2E860017B05F /* Application */ = {
-			isa = PBXGroup;
-			children = (
-				6845F016245B110B004F35FE /* AppDelegate.swift */,
-				6845F018245B110B004F35FE /* SceneDelegate.swift */,
-			);
-			path = Application;
-			sourceTree = "<group>";
-		};
 		686D45F9245EA0A60017B05F /* Static */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,7 +368,6 @@
 			children = (
 				689FBD4A2461A01A00E69197 /* CurrencyList.storyboard */,
 				689FBD4B2461A01A00E69197 /* CurrencyListViewController.swift */,
-				689FBD562461C44000E69197 /* CurrencyCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -675,7 +672,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				689FBD572461C44000E69197 /* CurrencyCell.swift in Sources */,
 				686D45A9245D42730017B05F /* TopInteractor.swift in Sources */,
 				689FBD532461A01A00E69197 /* CurrencyListViewController.swift in Sources */,
 				686D45A7245D42290017B05F /* TopViewController.swift in Sources */,
