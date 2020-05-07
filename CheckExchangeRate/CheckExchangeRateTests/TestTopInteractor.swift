@@ -27,7 +27,7 @@ class TestTopInteractor: XCTestCase {
     }
 
     // Test methods in TopInteractor for saving function
-    func testTopInteractorSavingMethods() {        
+    func testTopInteractorSavingMethods() {
         XCTContext.runActivity(named: "Check initializing UserPreferenceData") {_ in
             interctor.setDefaultUserPreferenceData()
         
@@ -214,14 +214,6 @@ class TestTopInteractor: XCTestCase {
             // Check that data was updated
             rateDataSaved = realm.objects(ExchangeRateData.self).first
             XCTAssertNotEqual(rateDataSaved?.quotes.count, 3) // This check should be passed, but can not as of now.
-        }
-    }
-
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
         }
     }
 }

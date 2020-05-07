@@ -31,6 +31,10 @@ class CurrencyListViewController: UIViewController {
         currencyTableView.delegate = self
         currencyTableView.dataSource = self
         currencySearchBar.delegate = self
+        
+        // set accessibilityIdentifier for UI Test
+        currencyTableView.accessibilityIdentifier = "CurrencyList_table"
+        currencySearchBar.accessibilityIdentifier = "CurrencyList_seachBar"
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -64,6 +68,9 @@ extension CurrencyListViewController: UITableViewDataSource, UITableViewDelegate
         } else {
             cell.accessoryType = .none
         }
+        
+        // set accessibilityIdentifier for UI Test
+        cell.accessibilityIdentifier = "CurrencyCell_\(indexPath.row)"
         
         return cell
     }
@@ -104,7 +111,6 @@ extension CurrencyListViewController: UISearchBarDelegate {
         presenter.didChangeSearchWord(searchWord: searchBar.text ?? "")
     }
 }
-
 
 extension CurrencyListViewController: CurrencyListView {
     func showCurrencyList(currencies: [Currency]) {

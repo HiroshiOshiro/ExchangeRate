@@ -42,6 +42,14 @@ class TopScreeenUITests: XCTestCase {
             waitToAppear(for: app.staticTexts["Top_toCurrencyLabel"])
             XCTAssertEqual(app.staticTexts["Top_toCurrencyLabel"].label, "0")
         }
+        XCTContext.runActivity(named: "Check Initial string in Top_toCurrencyLabel") {_ in
+            waitToAppear(for: app.buttons["Top_fromCurrencyButton"])
+            XCTAssertEqual(app.buttons["Top_fromCurrencyButton"].label, "USD")
+        }
+        XCTContext.runActivity(named: "Check Initial string in Top_toCurrencyLabel") {_ in
+            waitToAppear(for: app.buttons["Top_toCurrencyButton"])
+            XCTAssertEqual(app.buttons["Top_toCurrencyButton"].label, "JPY")
+        }
         XCTContext.runActivity(named: "Check update of string in Top_toCurrencyLabel by Top_fromTextField") {_ in
             waitToAppear(for: app.staticTexts["Top_toCurrencyLabel"])
             let textField = app.textFields["Top_fromTextField"]
@@ -50,54 +58,12 @@ class TopScreeenUITests: XCTestCase {
             let result1 = app.staticTexts["Top_toCurrencyLabel"].label
             XCTAssertNotEqual(result1, "0")
             
-            XCTContext.runActivity(named: "Top_fromTextFieldに\"2\"入力後のTop_toCurrencyLabelの値を確認") {_ in
+            XCTContext.runActivity(named: "Input \"2\" to Top_fromTextField") {_ in
                 app.keys["Delete"].tap()
                 textField.typeText(String(2))
                 XCTAssertEqual(Int(Double(app.staticTexts["Top_toCurrencyLabel"].label) ?? 0), Int((Double(result1)!) * 2))
             }
         }
-        
-        XCTContext.runActivity(named: "Check Initial string in Top_toCurrencyLabel") {_ in
-//            waitToAppear(for: app.staticTexts["Top_toCurrencyLabel"])
-//            XCTAssertEqual(app.staticTexts["Top_toCurrencyLabel"].label, "0")
-//            let realm = try! Realm()
-//            _ = realm.objects(UserPreferenceData.self)
-            
-            let app = XCUIApplication()
-            app/*@START_MENU_TOKEN@*/.textFields["Top_fromTextField"]/*[[".textFields[\"Input amount of money.\"]",".textFields[\"Top_fromTextField\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-            
-            let key = app/*@START_MENU_TOKEN@*/.keys["2"]/*[[".keyboards.keys[\"2\"]",".keys[\"2\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-            key.tap()
-            key.tap()
-            app/*@START_MENU_TOKEN@*/.buttons["Top_fromCurrencyButton"]/*[[".buttons[\"AFN\"]",".buttons[\"Top_fromCurrencyButton\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-                        
-        }
-        
-    }
-//
-
-
-}
-
-extension XCTestCase {
-    func waitToAppear(for element: XCUIElement,
-                      timeout: TimeInterval = 5,
-                      file: StaticString = #file,
-                      line: UInt = #line) {
-        let predicate = NSPredicate(format: "exists == true")
-        let expectation = XCTNSPredicateExpectation(predicate: predicate, object: element)
-        let result = XCTWaiter().wait(for: [expectation], timeout: timeout)
-        XCTAssertEqual(result, .completed, file: file, line: line)
-    }
-
-    func waitToHittable(for element: XCUIElement,
-                        timeout: TimeInterval = 5,
-                        file: StaticString = #file,
-                        line: UInt = #line) -> XCUIElement {
-        let predicate = NSPredicate(format: "hittable == true")
-        let expectation = XCTNSPredicateExpectation(predicate: predicate, object: element)
-        let result = XCTWaiter().wait(for: [expectation], timeout: timeout)
-        XCTAssertEqual(result, .completed, file: file, line: line)
-        return element
     }
 }
+

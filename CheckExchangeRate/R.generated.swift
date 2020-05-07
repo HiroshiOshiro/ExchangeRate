@@ -125,6 +125,15 @@ struct R: Rswift.Validatable {
 
   /// This `R.id` struct is generated, and contains static references to accessibility identifiers.
   struct id {
+    struct currencyList {
+      /// Accessibility identifier `CurrencyCell_detail`.
+      static let currencyCell_detail: String = "CurrencyCell_detail"
+      /// Accessibility identifier `CurrencyCell_title`.
+      static let currencyCell_title: String = "CurrencyCell_title"
+
+      fileprivate init() {}
+    }
+
     struct top {
       /// Accessibility identifier `Top_SwitchButton`.
       static let top_SwitchButton: String = "Top_SwitchButton"
