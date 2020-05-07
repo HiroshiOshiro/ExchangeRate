@@ -10,7 +10,7 @@ import RealmSwift
 
 class ExchangeRateData: Object {
     @objc dynamic var timestamp: Int = 0
-    @objc dynamic var savedAt = Date()
+    @objc dynamic var savedAt: Date?
     @objc dynamic var source: String = ""
     var quotes = List<Rate>()
 }

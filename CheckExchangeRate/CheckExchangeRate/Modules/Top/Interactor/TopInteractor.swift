@@ -75,7 +75,7 @@ extension TopInteractor: TopUseCase {
         task.resume()
     }
     
-    private func saveCurrencyData(with data: Data) -> CurrencyData {
+    func saveCurrencyData(with data: Data) -> CurrencyData {
         let currencyData = CurrencyData()
         
         let currencyListResponse = try! JSONDecoder().decode(CurrencyListResponse.self, from: data)
@@ -124,7 +124,7 @@ extension TopInteractor: TopUseCase {
         task.resume()
     }
     
-    private func saveRateData(with data: Data) -> ExchangeRateData {
+    func saveRateData(with data: Data) -> ExchangeRateData {
         let exchangeRateData = ExchangeRateData()
         
         let rateListResponse = try! JSONDecoder().decode(RateListResponse.self, from: data)

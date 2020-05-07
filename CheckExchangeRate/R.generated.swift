@@ -123,6 +123,26 @@ struct R: Rswift.Validatable {
   }
   #endif
 
+  /// This `R.id` struct is generated, and contains static references to accessibility identifiers.
+  struct id {
+    struct top {
+      /// Accessibility identifier `Top_SwitchButton`.
+      static let top_SwitchButton: String = "Top_SwitchButton"
+      /// Accessibility identifier `Top_fromCurrencyButton`.
+      static let top_fromCurrencyButton: String = "Top_fromCurrencyButton"
+      /// Accessibility identifier `Top_fromTextField`.
+      static let top_fromTextField: String = "Top_fromTextField"
+      /// Accessibility identifier `Top_toCurrencyButton`.
+      static let top_toCurrencyButton: String = "Top_toCurrencyButton"
+      /// Accessibility identifier `Top_toCurrencyLabel`.
+      static let top_toCurrencyLabel: String = "Top_toCurrencyLabel"
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+
   /// This `R.info` struct is generated, and contains static references to 1 properties.
   struct info {
     struct uiApplicationSceneManifest {
@@ -158,6 +178,32 @@ struct R: Rswift.Validatable {
   struct reuseIdentifier {
     /// Reuse identifier `CurrencyCell`.
     static let currencyCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "CurrencyCell")
+
+    fileprivate init() {}
+  }
+
+  /// This `R.string` struct is generated, and contains static references to 1 localization tables.
+  struct string {
+    /// This `R.string.localizable` struct is generated, and contains static references to 1 localization keys.
+    struct localizable {
+      /// Value: Fetching Data...
+      static let lodingText = Rswift.StringResource(key: "lodingText", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+
+      /// Value: Fetching Data...
+      static func lodingText(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("lodingText", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "lodingText"
+        }
+
+        return NSLocalizedString("lodingText", bundle: bundle, comment: "")
+      }
+
+      fileprivate init() {}
+    }
 
     fileprivate init() {}
   }

@@ -9,7 +9,7 @@
 import RealmSwift
 
 class CurrencyData: Object {
-    @objc dynamic var savedAt = Date()
+    @objc dynamic var savedAt: Date?
     var currencies = List<Currency>()
 }
 

@@ -23,6 +23,7 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input amount of money." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Sx9-0O-UlF">
                                 <rect key="frame" x="30" y="120" width="284" height="34"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Top_fromTextField"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="L5i-5V-0KU"/>
                                 </constraints>
@@ -34,6 +35,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="csJ-kg-0en">
                                 <rect key="frame" x="324" y="122" width="60" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Top_fromCurrencyButton"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="cP4-ca-0WD"/>
                                     <constraint firstAttribute="height" constant="30" id="quZ-EU-X6I"/>
@@ -56,6 +58,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VKO-xd-wuD">
                                 <rect key="frame" x="319" y="189" width="70" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Top_SwitchButton"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="kgP-ki-Z3u"/>
                                 </constraints>
@@ -66,6 +69,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaG-nr-WtQ">
                                 <rect key="frame" x="324" y="252.5" width="60" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Top_toCurrencyButton"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="5J4-e0-AUy"/>
                                     <constraint firstAttribute="height" constant="30" id="vNz-Qm-w4H"/>
@@ -118,6 +122,7 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8u6-H7-x7x">
                                 <rect key="frame" x="30" y="254" width="284" height="27"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Top_toCurrencyLabel"/>
                                 <attributedString key="attributedText">
                                     <fragment content="1000,000">
                                         <attributes>
